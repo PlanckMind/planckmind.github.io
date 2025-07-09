@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitish Rathore ✨✨</title>
+    <title>Nitish Rathore | PlanckMind</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 25px rgba(0,0,0,0.12);
+            --radius: 12px;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -16,16 +30,110 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #ffffff;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            min-height: 100vh;
             padding: 20px;
+            overflow-x: hidden;
+        }
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
         }
         
+        /* PlanckMind Animation Section */
+        .plankmind-concept {
+            text-align: center;
+            padding: 60px 0 40px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .animation-container {
+            position: relative;
+            height: 200px;
+            margin: 0 auto 40px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .ai-brain {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.8;
+            animation: pulse 4s infinite alternate;
+        }
+        
+        .brain-piece {
+            position: absolute;
+            font-size: 1.8rem;
+            opacity: 0;
+            animation: pieceFloat 8s infinite;
+        }
+        
+        .smallest-unit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            opacity: 0;
+            text-shadow: 0 2px 10px rgba(67, 97, 238, 0.3);
+        }
+        
+        .plankmind-text {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 10px;
+            opacity: 0;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .plankmind-text::after {
+            content: "The Smallest Possible Consciousness";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--gray);
+            width: 100%;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .arrow {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: var(--primary);
+            opacity: 0;
+        }
+        
         header {
             text-align: center;
-            padding: 40px 0 30px;
+            padding: 20px 0 30px;
+            position: relative;
+        }
+        
+        .profile-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
         }
         
         .profile-img {
@@ -33,30 +141,71 @@
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #f8f9fa;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 0 auto 20px;
-            display: block;
+            border: 5px solid white;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            top: -15px;
+            left: -15px;
+            z-index: 1;
+            opacity: 0.1;
+            animation: pulse 6s infinite alternate;
+        }
+        
+        .decoration-2 {
+            width: 220px;
+            height: 220px;
+            top: -25px;
+            left: -25px;
+            animation-delay: 2s;
         }
         
         h1 {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            margin-bottom: 5px;
-            color: #2c3e50;
+            margin-bottom: 10px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: "✨✨";
+            position: absolute;
+            right: -50px;
+            top: -10px;
+            font-size: 1.8rem;
         }
         
         .tagline {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            margin-bottom: 25px;
+            font-size: 1.4rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
         }
         
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 20px;
-            margin: 25px 0;
+            margin: 30px 0;
             flex-wrap: wrap;
         }
         
@@ -70,13 +219,31 @@
             color: white;
             font-size: 1.8rem;
             text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.2), transparent);
+            opacity: 0;
+            transition: var(--transition);
         }
         
         .social-icon:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .social-icon:hover::before {
+            opacity: 1;
         }
         
         .email {
@@ -99,124 +266,308 @@
             background: linear-gradient(45deg, #0088cc, #00aced);
         }
         
-        section {
-            margin: 40px 0;
-            padding: 30px;
-            border-radius: 12px;
-            background: #f8f9fa;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        .section {
+            margin: 50px 0;
+            padding: 40px;
+            border-radius: var(--radius);
+            background: white;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
         }
         
         h2 {
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #2c3e50;
-            text-align: center;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #eaeaea;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(67, 97, 238, 0.1) 0%, rgba(67, 97, 238, 0) 100%);
+            padding: 20px;
+            border-radius: var(--radius);
+            border-left: 3px solid var(--primary);
+            margin: 30px 0;
         }
         
         .inquiry {
             text-align: center;
-            font-size: 1.1rem;
-            margin-top: 20px;
+            font-size: 1.2rem;
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: var(--radius);
         }
         
         .inquiry a {
-            color: #3498db;
+            color: var(--primary);
             text-decoration: none;
             font-weight: 600;
+            transition: var(--transition);
+            position: relative;
         }
         
-        .inquiry a:hover {
-            text-decoration: underline;
+        .inquiry a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+        
+        .inquiry a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
         
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
+            gap: 30px;
+            margin-top: 30px;
         }
         
         .tool-card {
             background: white;
-            border-radius: 10px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid #eee;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
         .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
         }
         
         .tool-icon {
-            height: 80px;
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             color: white;
         }
         
         .tool-content {
-            padding: 20px;
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .tool-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--dark);
         }
         
         .tool-card p {
-            color: #7f8c8d;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
         
         .tool-link {
             display: inline-block;
-            padding: 8px 16px;
-            background: #f1f2f6;
+            padding: 10px 20px;
+            background: var(--light);
             border-radius: 30px;
-            color: #3498db;
+            color: var(--primary);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid var(--light-gray);
         }
         
         .tool-link:hover {
-            background: #3498db;
+            background: var(--primary);
             color: white;
+            transform: translateY(-2px);
+        }
+        
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .category-btn {
+            padding: 10px 20px;
+            background: var(--light);
+            border-radius: 30px;
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+            cursor: pointer;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
         }
         
         footer {
             text-align: center;
-            padding: 30px 0;
-            color: #7f8c8d;
-            font-size: 0.95rem;
-            border-top: 1px solid #eee;
-            margin-top: 40px;
+            padding: 50px 0 30px;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: var(--light-gray);
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+        }
+        
+        @keyframes pieceFloat {
+            0% { 
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            20% { 
+                opacity: 1;
+            }
+            80% { 
+                opacity: 1;
+            }
+            100% { 
+                transform: translate(var(--tx), var(--ty)) rotate(var(--r));
+                opacity: 0;
+            }
+        }
+        
+        @keyframes revealSmallest {
+            0% { 
+                transform: translate(-50%, -50%) scale(0.1);
+                opacity: 0;
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes revealArrow {
+            0% { 
+                transform: translate(-50%, -50%) scale(0.1);
+                opacity: 0;
+            }
+            100% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes revealText {
+            0% { 
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% { 
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
         
         @media (max-width: 768px) {
+            .section {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h1::after {
+                right: -40px;
+                font-size: 1.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
             .tools-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
-            h1 {
-                font-size: 2.3rem;
+            .plankmind-text {
+                font-size: 2.8rem;
             }
             
-            .profile-img {
-                width: 150px;
-                height: 150px;
+            .ai-brain {
+                font-size: 4rem;
             }
         }
         
@@ -227,148 +578,358 @@
                 font-size: 1.5rem;
             }
             
-            section {
-                padding: 20px 15px;
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h1::after {
+                right: -30px;
+                top: -5px;
+                font-size: 1.2rem;
+            }
+            
+            .section {
+                margin: 30px 0;
+                padding: 25px 15px;
             }
             
             .tools-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .categories {
+                gap: 10px;
+            }
+            
+            .category-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .plankmind-text {
+                font-size: 2.2rem;
+            }
+            
+            .plankmind-text::after {
+                font-size: 1rem;
+                bottom: -25px;
+            }
+            
+            .ai-brain {
+                font-size: 3rem;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Nitish Rathore" class="profile-img">
-        <h1>Nitish Rathore</h1>
-        <div class="tagline">Content Creator & Educator ✨✨</div>
+    <div class="container">
+        <!-- PlanckMind Concept Animation -->
+        <section class="plankmind-concept">
+            <div class="animation-container" id="brainAnimation">
+                <div class="ai-brain">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="smallest-unit">0,1</div>
+                <div class="arrow">➔</div>
+            </div>
+            <div class="plankmind-text">PlanckMind</div>
+        </section>
         
-        <div class="social-icons">
-            <a href="mailto:PlanckMind@gmail.com" class="social-icon email" title="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://youtube.com/@PlanckMind" target="_blank" class="social-icon youtube" title="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://instagram.com/PlanckMind" target="_blank" class="social-icon instagram" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://twitter.com/PlanckMind" target="_blank" class="social-icon twitter" title="Twitter">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://t.me/PlanckMind" target="_blank" class="social-icon telegram" title="Telegram">
-                <i class="fab fa-telegram"></i>
-            </a>
-        </div>
-    </header>
-    
-    <section>
-        <h2>About Me</h2>
-        <p>Hey there! I'm Nitish Rathore, a content creator and educator passionate about sharing knowledge and inspiring others. Through my platforms, I explore topics ranging from productivity and personal development to technology and creative expression.</p>
-        <p>My mission is to make learning accessible and enjoyable for everyone. Join me on this journey of growth and discovery!</p>
+        <header>
+            <div class="profile-container">
+                <div class="decoration"></div>
+                <div class="decoration decoration-2"></div>
+                <img src="sci%20dp.jpg" alt="Nitish Rathore" class="profile-img">
+            </div>
+            <h1>Nitish Rathore</h1>
+            <div class="tagline">
+                Content Creator & Educator passionate about sharing knowledge and inspiring others through productivity, personal development, and creative expression.
+            </div>
+            
+            <div class="social-icons">
+                <a href="mailto:PlanckMind@gmail.com" class="social-icon email" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://youtube.com/@PlanckMind" target="_blank" class="social-icon youtube" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://instagram.com/PlanckMind" target="_blank" class="social-icon instagram" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://twitter.com/PlanckMind" target="_blank" class="social-icon twitter" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://t.me/PlanckMind" target="_blank" class="social-icon telegram" title="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+        </header>
         
-        <div class="inquiry">
-            <p>For business inquiries and collaborations: <a href="mailto:PlanckMind@gmail.com">PlanckMind@gmail.com</a></p>
-        </div>
-    </section>
+        <section class="section">
+            <h2>About Me</h2>
+            <p>Hello! I'm Nitish Rathore, a content creator and educator with a mission to make learning accessible, enjoyable, and transformative. Through my PlanckMind platform, I explore the intersection of productivity, technology, and consciousness, helping people unlock their potential and live more intentional lives.</p>
+            
+            <div class="highlight">
+                <p>The concept of PlanckMind represents the smallest possible unit of consciousness - the fundamental building block of awareness. Just as Planck length is the smallest measurable unit in physics, PlanckMind represents the irreducible element of conscious thought.</p>
+            </div>
+            
+            <p>With a background in education and technology, I bring a unique perspective to content creation. My journey began as a teacher, evolved into content creation, and has now grown into a multi-platform educational ecosystem reaching thousands of learners worldwide.</p>
+            
+            <div class="inquiry">
+                <p>For business inquiries and collaborations: <a href="mailto:PlanckMind@gmail.com">PlanckMind@gmail.com</a></p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Featured Tools & Resources</h2>
+            <p>After years of creating content and optimizing workflows, I've curated the best tools that boost productivity, enhance creativity, and streamline workflows. Here are my top recommendations:</p>
+            
+            <div class="categories">
+                <div class="category-btn active">All Tools</div>
+                <div class="category-btn">Productivity</div>
+                <div class="category-btn">Creativity</div>
+                <div class="category-btn">Learning</div>
+                <div class="category-btn">Business</div>
+            </div>
+            
+            <div class="tools-grid">
+                <!-- Productivity Tools -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fab fa-notion"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Notion</h3>
+                        <p>All-in-one workspace for notes, tasks, wikis, and databases with powerful collaboration features.</p>
+                        <a href="#" class="tool-link">Explore Notion</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Todoist</h3>
+                        <p>Task manager and to-do list app that helps you organize and prioritize your projects.</p>
+                        <a href="#" class="tool-link">Try Todoist</a>
+                    </div>
+                </div>
+                
+                <!-- Creativity Tools -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Figma</h3>
+                        <p>Collaborative interface design tool with real-time editing and prototyping capabilities.</p>
+                        <a href="#" class="tool-link">Design in Figma</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Canva</h3>
+                        <p>Create stunning designs with drag-and-drop simplicity and thousands of templates.</p>
+                        <a href="#" class="tool-link">Create with Canva</a>
+                    </div>
+                </div>
+                
+                <!-- Learning Tools -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Obsidian</h3>
+                        <p>Knowledge base that works on local Markdown files with powerful linking capabilities.</p>
+                        <a href="#" class="tool-link">Build Knowledge</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Readwise</h3>
+                        <p>Automatically sync and revisit your highlights from books, articles, and more.</p>
+                        <a href="#" class="tool-link">Sync Highlights</a>
+                    </div>
+                </div>
+                
+                <!-- Business Tools -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Calendly</h3>
+                        <p>Automate meeting scheduling without the back-and-forth emails.</p>
+                        <a href="#" class="tool-link">Schedule Meetings</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>ConvertKit</h3>
+                        <p>Email marketing platform built for creators with powerful automation features.</p>
+                        <a href="#" class="tool-link">Grow Your Audience</a>
+                    </div>
+                </div>
+                
+                <!-- Additional Tools -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Descript</h3>
+                        <p>Edit video and audio by editing text. Podcasting, screen recording, and more.</p>
+                        <a href="#" class="tool-link">Edit Media</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Riverside.fm</h3>
+                        <p>Studio-quality recordings for podcasts and videos directly from your browser.</p>
+                        <a href="#" class="tool-link">Record Professionally</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>VS Code</h3>
+                        <p>Lightweight but powerful source code editor with built-in Git commands.</p>
+                        <a href="#" class="tool-link">Code Efficiently</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Dropbox</h3>
+                        <p>Secure file sharing, storage, and collaboration solution for teams.</p>
+                        <a href="#" class="tool-link">Store & Share</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Audacity</h3>
+                        <p>Free, open source audio editing software for podcasters and musicians.</p>
+                        <a href="#" class="tool-link">Edit Audio</a>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-pencil-alt"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Procreate</h3>
+                        <p>Powerful digital illustration app for artists and designers on iPad.</p>
+                        <a href="#" class="tool-link">Create Art</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footer-logo">PlanckMind</div>
+            <p>© 2023 Nitish Rathore. All Rights Reserved.</p>
+            <p>The Smallest Possible Consciousness ✨✨</p>
+        </footer>
+    </div>
     
-    <section>
-        <h2>Top Recommended Tools</h2>
-        <div class="tools-grid">
-            <!-- Tool Cards -->
-            <div class="tool-card">
-                <div class="tool-icon">
-                    <i class="fab fa-figma"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>Figma</h3>
-                    <p>Collaborative interface design tool for teams</p>
-                    <a href="#" class="tool-link">Visit Tool</a>
-                </div>
-            </div>
+    <script>
+        // PlanckMind Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animationContainer = document.getElementById('brainAnimation');
+            const smallestUnit = document.querySelector('.smallest-unit');
+            const arrow = document.querySelector('.arrow');
+            const plankmindText = document.querySelector('.plankmind-text');
             
-            <div class="tool-card">
-                <div class="tool-icon">
-                    <i class="fas fa-video"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>Descript</h3>
-                    <p>Video editing as easy as editing a document</p>
-                    <a href="#" class="tool-link">Visit Tool</a>
-                </div>
-            </div>
+            // Create brain pieces
+            for (let i = 0; i < 12; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'brain-piece';
+                piece.innerHTML = '<i class="fas fa-brain"></i>';
+                
+                // Random properties
+                const tx = (Math.random() - 0.5) * 300;
+                const ty = (Math.random() - 0.5) * 300;
+                const r = Math.random() * 360;
+                const size = 0.2 + Math.random() * 0.8;
+                const delay = Math.random() * 2;
+                
+                piece.style.setProperty('--tx', `${tx}px`);
+                piece.style.setProperty('--ty', `${ty}px`);
+                piece.style.setProperty('--r', `${r}deg`);
+                piece.style.fontSize = `${size}rem`;
+                piece.style.animationDelay = `${delay}s`;
+                
+                animationContainer.appendChild(piece);
+            }
             
-            <div class="tool-card">
-                <div class="tool-icon">
-                    <i class="fas fa-headphones"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>Audacity</h3>
-                    <p>Free, open source audio editing software</p>
-                    <a href="#" class="tool-link">Visit Tool</a>
-                </div>
-            </div>
+            // Anate the brain pieces
+            setTimeout(() => {
+                // Hide the main brain
+                document.querySelector('.ai-brain').style.opacity = '0';
+                
+                // Show the smallest unit
+                smallestUnit.style.animation = 'revealSmallest 1.5s forwards';
+                
+                // Show the arrow
+                setTimeout(() => {
+                    arrow.style.animation = 'revealArrow 1s forwards';
+                    
+                    // Show the PlanckMind text
+                    setTimeout(() => {
+                        plankmindText.style.animation = 'revealText 1s forwards';
+                    }, 500);
+                }, 800);
+            }, 2000);
             
-            <div class="tool-card">
-                <div class="tool-icon">
-                    <i class="fas fa-book"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>Notion</h3>
-                    <p>All-in-one workspace for notes and projects</p>
-                    <a href="#" class="tool-link">Visit Tool</a>
-                </div>
-            </div>
+            // Animation for category buttons
+            document.querySelectorAll('.category-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.category-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
             
-            <div class="tool-card">
-                <div class="tool-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>Calendly</h3>
-                    <p>Simplify scheduling without back-and-forth emails</p>
-                    <a href="#" class="tool-link">Visit Tool</a>
-                </div>
-            </div>
-            
-            <div class="tool-card">
-                <div class="tool-icon">
-                    <i class="fas fa-paint-brush"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>Canva</h3>
-                    <p>Create stunning designs with no design skills</p>
-                    <a href="#" class="tool-link">Visit Tool</a>
-                </div>
-            </div>
-            
-            <div class="tool-card">
-                <div class="tool-icon">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>VS Code</h3>
-                    <p>Powerful code editor with tons of extensions</p>
-                    <a href="#" class="tool-link">Visit Tool</a>
-                </div>
-            </div>
-            
-            <div class="tool-card">
-                <div class="tool-icon">
-                    <i class="fas fa-cloud"></i>
-                </div>
-                <div class="tool-content">
-                    <h3>Dropbox</h3>
-                    <p>Cloud storage for all your files and documents</p>
-                    <a href="#" class="tool-link">Visit Tool</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <footer>
-        <p>© 2023 Nitish Rathore. All Rights Reserved.</p>
-        <p>PlanckMind ✨✨</p>
-    </footer>
+            // Tool card hover effect
+            document.querySelectorAll('.tool-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.querySelector('.tool-icon').style.background = 'linear-gradient(135deg, #3a0ca3 0%, #4361ee 100%)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.querySelector('.tool-icon').style.background = 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)';
+                });
+            });
+        });
+    </script>
 </body>
 </html>
