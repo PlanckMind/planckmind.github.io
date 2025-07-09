@@ -4,178 +4,224 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PlanckMind – AI Made Simple</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
-    * { box-sizing: border-box; }
-    body {
+    * {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: url('bg.jpg') no-repeat center center fixed;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: url('bg.png') no-repeat center center fixed;
       background-size: cover;
       color: #ffffff;
       text-align: center;
       padding: 40px 20px;
-      backdrop-filter: brightness(0.35) blur(3px);
-      animation: fadeIn 1.5s ease-in;
       transition: background 0.5s, color 0.5s;
     }
-    body.light-theme {
-      background: #f5f5f5;
-      color: #111;
+    .dark-mode {
+      background-color: #121212;
+      color: #f0f0f0;
+      background-image: none;
     }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    h1 { font-family: 'Orbitron', sans-serif; font-size: 3.2em; color: #00ffe0; margin: 12px 0; text-shadow: 0 0 12px #000; }
-    p { font-size: 1.1em; margin: 6px 0; }
-    a { color: #00ffe0; text-decoration: none; font-weight: bold; }
-    .highlight { color: #ffb300; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .toggle {
+      cursor: pointer;
+      font-size: 1.5em;
+    }
     .profile-pic {
-      width: 150px; height: 150px; border-radius: 50%;
-      border: 3px solid #00ffe0; margin-top: 20px; box-shadow: 0 0 20px #000;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid #00ffe0;
+      margin: 20px auto;
+      display: block;
+      box-shadow: 0 0 15px #000;
     }
-    .socials { margin-top: 30px; }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3em;
+      color: #00ffe0;
+      margin: 10px 0;
+      text-shadow: 0 0 10px #000;
+    }
+    .highlight {
+      color: #ffb300;
+    }
     .socials a {
-      display: inline-block; margin: 6px 12px; padding: 8px 14px;
-      border-radius: 30px; background: rgba(0, 0, 0, 0.4);
-      color: #00ffe0; transition: all 0.3s ease;
+      margin: 10px;
+      color: #00ffe0;
+      text-decoration: none;
+      font-size: 1.5em;
+      transition: 0.3s ease;
     }
-    .socials a:hover { background-color: #00ffe0; color: #000; }
-    .tools-section, .game-section, .blog-section {
-      margin-top: 60px; background: rgba(255, 255, 255, 0.07);
-      padding: 25px; border-radius: 14px; max-width: 800px;
-      margin-left: auto; margin-right: auto; box-shadow: 0 0 15px #000;
+    .socials a:hover {
+      color: #ffb300;
     }
-    .tool-category { margin-top: 30px; }
-    .tool-card {
-      background: rgba(255, 255, 255, 0.05); padding: 18px;
-      margin: 12px 0; border-radius: 10px;
-      border: 1px solid #00ffe0;
+    .section {
+      margin-top: 60px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .tool-card h4 { color: #ffb300; margin-bottom: 6px; }
-    .game-section button, .toggle-theme {
-      margin: 10px; padding: 12px 18px; border: none; border-radius: 30px;
-      font-weight: bold; background-color: #00ffe0; color: #000;
-      cursor: pointer; transition: all 0.3s ease;
+    .ai-tool-category {
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px #00ffe0;
     }
-    .game-section button:hover, .toggle-theme:hover { background-color: #ffb300; color: #000; }
-    .search-box {
+    .category-title {
+      cursor: pointer;
+      font-size: 1.4em;
+      color: #ffb300;
+      margin: 10px 0;
+    }
+    .tool-list {
+      display: none;
+      text-align: left;
+      margin-top: 10px;
+    }
+    .tool-list a {
+      display: block;
+      color: #fff;
+      margin: 4px 0;
+      text-decoration: none;
+      padding-left: 10px;
+    }
+    .tool-list a:hover {
+      text-decoration: underline;
+    }
+    .blog {
+      text-align: left;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .search-bar {
       margin-top: 30px;
     }
-    .search-box input {
-      padding: 10px 20px;
-      border-radius: 25px;
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
       border: none;
-      width: 300px;
-      max-width: 90%;
+      border-radius: 8px;
     }
-    footer { margin-top: 60px; font-size: 0.85em; color: #bbb; }
+    canvas {
+      border: 2px solid #00ffe0;
+      margin-top: 30px;
+    }
+    footer {
+      margin-top: 80px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
     @media (max-width: 600px) {
-      h1 { font-size: 2.2em; }
+      h1 { font-size: 2em; }
+      input[type="text"] { width: 90%; }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="logo"><strong>PlanckMind</strong></div>
+    <div class="toggle" onclick="toggleMode()">🌙</div>
+  </header>
+
   <img src="sci dp.jpg" alt="Nitish Rathore" class="profile-pic" />
   <h1>Welcome to <span class="highlight">PlanckMind</span></h1>
-  <p>AI Made Simple — Explore tools, tutorials & creativity ⚡</p>
-  <p>By <strong>Nitish Rathore ✨</strong></p>
-  <p>📩 Contact: <a href="mailto:planckmind@gmail.com">planckmind@gmail.com</a></p>
-
-  <button class="toggle-theme" onclick="toggleTheme()">🌗 Toggle Theme</button>
-  <div class="search-box">
-    <input type="text" placeholder="Search AI tools... (not functional yet)" />
-  </div>
+  <p>By <strong>Nitish Rathore ✨✨</strong></p>
+  <p>📩 Business: <a href="mailto:planckmind@gmail.com">planckmind@gmail.com</a></p>
 
   <div class="socials">
-    <p>🔗 Connect with Me:</p>
-    <a href="https://youtube.com/@PlanckMind" target="_blank">YouTube</a>
-    <a href="https://instagram.com/PlanckMind" target="_blank">Instagram</a>
-    <a href="https://twitter.com/PlanckMind" target="_blank">Twitter</a>
-    <a href="https://t.me/PlanckMind" target="_blank">Telegram</a>
+    <a href="https://youtube.com/@PlanckMind" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://instagram.com/PlanckMind" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://twitter.com/PlanckMind" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://t.me/PlanckMind" target="_blank"><i class="fab fa-telegram"></i></a>
   </div>
 
-  <div class="game-section">
-    <h2>🕹️ Play Rock Paper Scissors</h2>
-    <p>Try beating AI in a classic game! ✊ ✋ ✌️</p>
-    <div>
-      <button onclick="playGame('rock')">Rock</button>
-      <button onclick="playGame('paper')">Paper</button>
-      <button onclick="playGame('scissors')">Scissors</button>
-    </div>
-    <p id="game-result" style="margin-top:20px;font-weight:bold;font-size:1.1em;"></p>
+  <div class="search-bar">
+    <input type="text" placeholder="Search AI tools, blogs, content..." />
   </div>
 
-  <div class="blog-section">
-    <h2>🧾 Learn About AI & PlanckMind</h2>
-    <p><strong>What is AI?</strong> Artificial Intelligence (AI) is the simulation of human intelligence in machines that are programmed to think, learn, and adapt.</p>
-    <p><strong>How AI Works:</strong> AI uses algorithms and vast data sets to recognize patterns, make predictions, and automate tasks — from chatting to image creation.</p>
-    <p><strong>What is PlanckMind?</strong> "Planck" represents the smallest unit in physics, and "Mind" symbolizes intelligence — together, PlanckMind is the core of smart simplicity in AI learning.</p>
+  <div class="section">
+    <h2 class="highlight">🎮 Play Game</h2>
+    <canvas id="myGame" width="320" height="320"></canvas>
   </div>
 
-  <div class="tools-section">
-    <h2>🧠 25+ Best Free AI Tools</h2>
-    <div class="tool-category">
-      <h3>📷 Image Generation</h3>
-      <div class="tool-card"><h4>Leonardo AI</h4><p>Image generation with styles & prompts. <a href="https://leonardo.ai" target="_blank">Try Now</a></p></div>
-      <div class="tool-card"><h4>Ideogram AI</h4><p>Text to image + word styling. <a href="https://ideogram.ai" target="_blank">Try Now</a></p></div>
-      <div class="tool-card"><h4>Midjourney</h4><p>High-quality art via Discord. <a href="https://midjourney.com" target="_blank">Try Now</a></p></div>
+  <div class="section">
+    <h2 class="highlight">🧠 AI Tools by Category</h2>
+    <div class="ai-tool-category">
+      <div class="category-title" onclick="toggleList('image-ai')">🖼️ Image Generation</div>
+      <div id="image-ai" class="tool-list">
+        <a href="https://leonardo.ai" target="_blank">Leonardo AI</a>
+        <a href="https://midjourney.com" target="_blank">Midjourney</a>
+        <a href="https://www.bing.com/images/create" target="_blank">Bing Image Creator</a>
+      </div>
+      <div class="category-title" onclick="toggleList('text-ai')">✍️ Text Generation</div>
+      <div id="text-ai" class="tool-list">
+        <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+        <a href="https://claude.ai" target="_blank">Claude</a>
+        <a href="https://poe.com" target="_blank">Poe</a>
+      </div>
+      <!-- More categories can be added similarly -->
     </div>
-    <div class="tool-category">
-      <h3>🎥 Video Generation</h3>
-      <div class="tool-card"><h4>Pika Labs</h4><p>AI animations from text. <a href="https://pika.art" target="_blank">Try Now</a></p></div>
-      <div class="tool-card"><h4>Sora by OpenAI</h4><p>Realistic AI video (coming soon). <a href="https://openai.com/sora" target="_blank">Learn More</a></p></div>
-      <div class="tool-card"><h4>Runway</h4><p>Video editing & gen. <a href="https://runwayml.com" target="_blank">Try Now</a></p></div>
-    </div>
-    <div class="tool-category">
-      <h3>📝 Writing & Chat</h3>
-      <div class="tool-card"><h4>ChatGPT</h4><p>World’s most popular AI assistant. <a href="https://chat.openai.com" target="_blank">Use ChatGPT</a></p></div>
-      <div class="tool-card"><h4>Claude</h4><p>Anthropic’s natural writing AI. <a href="https://claude.ai" target="_blank">Try Claude</a></p></div>
-      <div class="tool-card"><h4>Google Gemini</h4><p>Google’s AI model for chat & writing. <a href="https://gemini.google.com" target="_blank">Try Gemini</a></p></div>
-    </div>
-    <div class="tool-category">
-      <h3>🎵 Music & Voice</h3>
-      <div class="tool-card"><h4>Suno AI</h4><p>Turn text into full songs. <a href="https://suno.com" target="_blank">Try Now</a></p></div>
-      <div class="tool-card"><h4>ElevenLabs</h4><p>AI voice generation & dubbing. <a href="https://elevenlabs.io" target="_blank">Try Now</a></p></div>
-    </div>
-    <div class="tool-category">
-      <h3>📊 Productivity</h3>
-      <div class="tool-card"><h4>Notion AI</h4><p>Automate your Notion workspace. <a href="https://notion.so" target="_blank">Try Now</a></p></div>
-      <div class="tool-card"><h4>Gamma</h4><p>Create presentations with AI. <a href="https://gamma.app" target="_blank">Try Now</a></p></div>
-      <div class="tool-card"><h4>Rewind AI</h4><p>Record everything on your screen. <a href="https://rewind.ai" target="_blank">Try Now</a></p></div>
-    </div>
-    <div class="tool-category">
-      <h3>🧩 Others</h3>
-      <div class="tool-card"><h4>Durable</h4><p>Make a website in 30 seconds. <a href="https://durable.co" target="_blank">Try Now</a></p></div>
-      <div class="tool-card"><h4>Perplexity AI</h4><p>AI-powered search engine. <a href="https://perplexity.ai" target="_blank">Try Now</a></p></div>
-      <div class="tool-card"><h4>Remove.bg</h4><p>Remove image background. <a href="https://remove.bg" target="_blank">Try Now</a></p></div>
+  </div>
+
+  <div class="section">
+    <h2 class="highlight">📝 Blog</h2>
+    <div class="blog">
+      <h3>What is AI?</h3>
+      <p>AI (Artificial Intelligence) is a branch of computer science focused on creating intelligent machines that simulate human thinking and behavior.</p>
+      <h3>How AI Works?</h3>
+      <p>AI works using algorithms, data, and models like neural networks that allow machines to learn, reason, and make decisions.</p>
+      <h3>What is PlanckMind?</h3>
+      <p>"Planck" is the smallest unit in quantum physics, and "Mind" symbolizes intelligence — together, PlanckMind means the smallest yet most powerful unit of intelligence.</p>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 PlanckMind – All rights reserved.
+    &copy; 2025 PlanckMind — All rights reserved.
   </footer>
 
   <script>
-    function playGame(userChoice) {
-      const choices = ['rock', 'paper', 'scissors'];
-      const aiChoice = choices[Math.floor(Math.random() * 3)];
-      let result = '';
-      if (userChoice === aiChoice) {
-        result = `🤝 It's a draw! We both chose ${userChoice}.`;
-      } else if (
-        (userChoice === 'rock' && aiChoice === 'scissors') ||
-        (userChoice === 'paper' && aiChoice === 'rock') ||
-        (userChoice === 'scissors' && aiChoice === 'paper')
-      ) {
-        result = `🎉 You Win! ${userChoice} beats ${aiChoice}.`;
-      } else {
-        result = `😢 You Lose! ${aiChoice} beats ${userChoice}.`;
-      }
-      document.getElementById('game-result').innerText = result;
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
     }
 
-    function toggleTheme() {
-      document.body.classList.toggle('light-theme');
+    function toggleList(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "block" ? "none" : "block";
     }
+
+    // Game
+    const canvas = document.getElementById('myGame');
+    const ctx = canvas.getContext('2d');
+    let x = 160, y = 160, r = 10, dx = 2, dy = 2;
+    function drawBall() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2);
+      ctx.fillStyle = "#00ffe0";
+      ctx.fill();
+      ctx.closePath();
+
+      if(x + dx > canvas.width - r || x + dx < r) dx = -dx;
+      if(y + dy > canvas.height - r || y + dy < r) dy = -dy;
+
+      x += dx;
+      y += dy;
+    }
+    setInterval(drawBall, 10);
   </script>
 </body>
 </html>
