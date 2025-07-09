@@ -4,64 +4,92 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PlanckMind – AI Made Simple</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Montserrat', sans-serif;
       background: url('ai-bg.jpg') no-repeat center center fixed;
-
       background-size: cover;
       color: #ffffff;
       text-align: center;
       padding: 40px 20px;
-      backdrop-filter: brightness(0.5);
+      backdrop-filter: brightness(0.4) blur(2px);
     }
+
     h1 {
+      font-family: 'Orbitron', sans-serif;
       font-size: 3em;
       color: #00ffe0;
-      margin-bottom: 10px;
+      margin: 10px 0;
+      text-shadow: 0 0 10px #000;
     }
+
     p {
-      font-size: 1.2em;
+      font-size: 1.1em;
       margin: 8px 0;
+      color: #e0e0e0;
     }
+
     a {
       color: #00ffe0;
       text-decoration: none;
       font-weight: bold;
     }
+
     .highlight {
       color: #ffb300;
     }
+
     .profile-pic {
       width: 160px;
       height: 160px;
       border-radius: 50%;
-      border: 4px solid #00ffe0;
+      border: 3px solid #00ffe0;
       margin-top: 20px;
+      box-shadow: 0 0 15px #000;
     }
+
     .socials {
-      margin-top: 25px;
+      margin-top: 30px;
     }
+
     .socials a {
       display: inline-block;
       margin: 0 10px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      color: #00ffe0;
+      transition: 0.3s ease;
     }
+
+    .socials a:hover {
+      background-color: #00ffe0;
+      color: #000;
+    }
+
     .video-section {
-      margin-top: 50px;
+      margin-top: 60px;
     }
+
     iframe {
       width: 90%;
-      max-width: 560px;
+      max-width: 600px;
       height: 315px;
       border: none;
       margin-top: 20px;
       border-radius: 12px;
       box-shadow: 0 0 20px #000;
     }
+
     .tools-section {
       margin-top: 60px;
     }
+
     .tool-card {
       background: rgba(255, 255, 255, 0.05);
       padding: 20px;
@@ -69,11 +97,26 @@
       max-width: 600px;
       border-radius: 12px;
       border: 1px solid #00ffe0;
+      box-shadow: 0 0 15px #000;
     }
+
+    .tool-card h3 {
+      color: #ffb300;
+    }
+
     footer {
       margin-top: 60px;
-      font-size: 0.9em;
+      font-size: 0.85em;
       color: #bbb;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      iframe {
+        height: 200px;
+      }
     }
   </style>
 </head>
