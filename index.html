@@ -1,227 +1,374 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PlanckMind – AI Made Simple</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: url('bg.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #ffffff;
-      text-align: center;
-      padding: 40px 20px;
-      transition: background 0.5s, color 0.5s;
-    }
-    .dark-mode {
-      background-color: #121212;
-      color: #f0f0f0;
-      background-image: none;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-    }
-    .toggle {
-      cursor: pointer;
-      font-size: 1.5em;
-    }
-    .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 3px solid #00ffe0;
-      margin: 20px auto;
-      display: block;
-      box-shadow: 0 0 15px #000;
-    }
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3em;
-      color: #00ffe0;
-      margin: 10px 0;
-      text-shadow: 0 0 10px #000;
-    }
-    .highlight {
-      color: #ffb300;
-    }
-    .socials a {
-      margin: 10px;
-      color: #00ffe0;
-      text-decoration: none;
-      font-size: 1.5em;
-      transition: 0.3s ease;
-    }
-    .socials a:hover {
-      color: #ffb300;
-    }
-    .section {
-      margin-top: 60px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .ai-tool-category {
-      margin-top: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 10px #00ffe0;
-    }
-    .category-title {
-      cursor: pointer;
-      font-size: 1.4em;
-      color: #ffb300;
-      margin: 10px 0;
-    }
-    .tool-list {
-      display: none;
-      text-align: left;
-      margin-top: 10px;
-    }
-    .tool-list a {
-      display: block;
-      color: #fff;
-      margin: 4px 0;
-      text-decoration: none;
-      padding-left: 10px;
-    }
-    .tool-list a:hover {
-      text-decoration: underline;
-    }
-    .blog {
-      text-align: left;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-    .search-bar {
-      margin-top: 30px;
-    }
-    input[type="text"] {
-      padding: 10px;
-      width: 60%;
-      border: none;
-      border-radius: 8px;
-    }
-    canvas {
-      border: 2px solid #00ffe0;
-      margin-top: 30px;
-    }
-    footer {
-      margin-top: 80px;
-      font-size: 0.9em;
-      color: #ccc;
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 2em; }
-      input[type="text"] { width: 90%; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitish Rathore ✨✨</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 0 auto 20px;
+            display: block;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .email {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+        }
+        
+        .youtube {
+            background: linear-gradient(45deg, #ff0000, #ff5e5e);
+        }
+        
+        .instagram {
+            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
+        }
+        
+        .twitter {
+            background: linear-gradient(45deg, #1da1f2, #1a91da);
+        }
+        
+        .telegram {
+            background: linear-gradient(45deg, #0088cc, #00aced);
+        }
+        
+        section {
+            margin: 40px 0;
+            padding: 30px;
+            border-radius: 12px;
+            background: #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+        }
+        
+        .inquiry {
+            text-align: center;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+        
+        .inquiry a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .inquiry a:hover {
+            text-decoration: underline;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eee;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .tool-icon {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+        }
+        
+        .tool-content {
+            padding: 20px;
+        }
+        
+        .tool-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .tool-card p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .tool-link {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #f1f2f6;
+            border-radius: 30px;
+            color: #3498db;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .tool-link:hover {
+            background: #3498db;
+            color: white;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            section {
+                padding: 20px 15px;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo"><strong>PlanckMind</strong></div>
-    <div class="toggle" onclick="toggleMode()">🌙</div>
-  </header>
-
-  <img src="sci dp.jpg" alt="Nitish Rathore" class="profile-pic" />
-  <h1>Welcome to <span class="highlight">PlanckMind</span></h1>
-  <p>By <strong>Nitish Rathore ✨✨</strong></p>
-  <p>📩 Business: <a href="mailto:planckmind@gmail.com">planckmind@gmail.com</a></p>
-
-  <div class="socials">
-    <a href="https://youtube.com/@PlanckMind" target="_blank"><i class="fab fa-youtube"></i></a>
-    <a href="https://instagram.com/PlanckMind" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://twitter.com/PlanckMind" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://t.me/PlanckMind" target="_blank"><i class="fab fa-telegram"></i></a>
-  </div>
-
-  <div class="search-bar">
-    <input type="text" placeholder="Search AI tools, blogs, content..." />
-  </div>
-
-  <div class="section">
-    <h2 class="highlight">🎮 Play Game</h2>
-    <canvas id="myGame" width="320" height="320"></canvas>
-  </div>
-
-  <div class="section">
-    <h2 class="highlight">🧠 AI Tools by Category</h2>
-    <div class="ai-tool-category">
-      <div class="category-title" onclick="toggleList('image-ai')">🖼️ Image Generation</div>
-      <div id="image-ai" class="tool-list">
-        <a href="https://leonardo.ai" target="_blank">Leonardo AI</a>
-        <a href="https://midjourney.com" target="_blank">Midjourney</a>
-        <a href="https://www.bing.com/images/create" target="_blank">Bing Image Creator</a>
-      </div>
-      <div class="category-title" onclick="toggleList('text-ai')">✍️ Text Generation</div>
-      <div id="text-ai" class="tool-list">
-        <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
-        <a href="https://claude.ai" target="_blank">Claude</a>
-        <a href="https://poe.com" target="_blank">Poe</a>
-      </div>
-      <!-- More categories can be added similarly -->
-    </div>
-  </div>
-
-  <div class="section">
-    <h2 class="highlight">📝 Blog</h2>
-    <div class="blog">
-      <h3>What is AI?</h3>
-      <p>AI (Artificial Intelligence) is a branch of computer science focused on creating intelligent machines that simulate human thinking and behavior.</p>
-      <h3>How AI Works?</h3>
-      <p>AI works using algorithms, data, and models like neural networks that allow machines to learn, reason, and make decisions.</p>
-      <h3>What is PlanckMind?</h3>
-      <p>"Planck" is the smallest unit in quantum physics, and "Mind" symbolizes intelligence — together, PlanckMind means the smallest yet most powerful unit of intelligence.</p>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 PlanckMind — All rights reserved.
-  </footer>
-
-  <script>
-    function toggleMode() {
-      document.body.classList.toggle("dark-mode");
-    }
-
-    function toggleList(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === "block" ? "none" : "block";
-    }
-
-    // Game
-    const canvas = document.getElementById('myGame');
-    const ctx = canvas.getContext('2d');
-    let x = 160, y = 160, r = 10, dx = 2, dy = 2;
-    function drawBall() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.beginPath();
-      ctx.arc(x, y, r, 0, Math.PI * 2);
-      ctx.fillStyle = "#00ffe0";
-      ctx.fill();
-      ctx.closePath();
-
-      if(x + dx > canvas.width - r || x + dx < r) dx = -dx;
-      if(y + dy > canvas.height - r || y + dy < r) dy = -dy;
-
-      x += dx;
-      y += dy;
-    }
-    setInterval(drawBall, 10);
-  </script>
+    <header>
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Nitish Rathore" class="profile-img">
+        <h1>Nitish Rathore</h1>
+        <div class="tagline">Content Creator & Educator ✨✨</div>
+        
+        <div class="social-icons">
+            <a href="mailto:PlanckMind@gmail.com" class="social-icon email" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://youtube.com/@PlanckMind" target="_blank" class="social-icon youtube" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://instagram.com/PlanckMind" target="_blank" class="social-icon instagram" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/PlanckMind" target="_blank" class="social-icon twitter" title="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://t.me/PlanckMind" target="_blank" class="social-icon telegram" title="Telegram">
+                <i class="fab fa-telegram"></i>
+            </a>
+        </div>
+    </header>
+    
+    <section>
+        <h2>About Me</h2>
+        <p>Hey there! I'm Nitish Rathore, a content creator and educator passionate about sharing knowledge and inspiring others. Through my platforms, I explore topics ranging from productivity and personal development to technology and creative expression.</p>
+        <p>My mission is to make learning accessible and enjoyable for everyone. Join me on this journey of growth and discovery!</p>
+        
+        <div class="inquiry">
+            <p>For business inquiries and collaborations: <a href="mailto:PlanckMind@gmail.com">PlanckMind@gmail.com</a></p>
+        </div>
+    </section>
+    
+    <section>
+        <h2>Top Recommended Tools</h2>
+        <div class="tools-grid">
+            <!-- Tool Cards -->
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fab fa-figma"></i>
+                </div>
+                <div class="tool-content">
+                    <h3>Figma</h3>
+                    <p>Collaborative interface design tool for teams</p>
+                    <a href="#" class="tool-link">Visit Tool</a>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="tool-content">
+                    <h3>Descript</h3>
+                    <p>Video editing as easy as editing a document</p>
+                    <a href="#" class="tool-link">Visit Tool</a>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <div class="tool-content">
+                    <h3>Audacity</h3>
+                    <p>Free, open source audio editing software</p>
+                    <a href="#" class="tool-link">Visit Tool</a>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="tool-content">
+                    <h3>Notion</h3>
+                    <p>All-in-one workspace for notes and projects</p>
+                    <a href="#" class="tool-link">Visit Tool</a>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="tool-content">
+                    <h3>Calendly</h3>
+                    <p>Simplify scheduling without back-and-forth emails</p>
+                    <a href="#" class="tool-link">Visit Tool</a>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="tool-content">
+                    <h3>Canva</h3>
+                    <p>Create stunning designs with no design skills</p>
+                    <a href="#" class="tool-link">Visit Tool</a>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="tool-content">
+                    <h3>VS Code</h3>
+                    <p>Powerful code editor with tons of extensions</p>
+                    <a href="#" class="tool-link">Visit Tool</a>
+                </div>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+                <div class="tool-content">
+                    <h3>Dropbox</h3>
+                    <p>Cloud storage for all your files and documents</p>
+                    <a href="#" class="tool-link">Visit Tool</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2023 Nitish Rathore. All Rights Reserved.</p>
+        <p>PlanckMind ✨✨</p>
+    </footer>
 </body>
 </html>
