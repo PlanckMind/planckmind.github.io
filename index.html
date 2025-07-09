@@ -4,119 +4,72 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PlanckMind – AI Made Simple</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: url('ai-bg.jpg') no-repeat center center fixed;
+      font-family: 'Poppins', sans-serif;
+      background: url('bg.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #ffffff;
       text-align: center;
       padding: 40px 20px;
-      backdrop-filter: brightness(0.4) blur(2px);
+      backdrop-filter: brightness(0.35) blur(3px);
+      animation: fadeIn 1.5s ease-in;
+      transition: background 0.5s, color 0.5s;
     }
-
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3em;
-      color: #00ffe0;
-      margin: 10px 0;
-      text-shadow: 0 0 10px #000;
+    body.light-theme {
+      background: #f5f5f5;
+      color: #111;
     }
-
-    p {
-      font-size: 1.1em;
-      margin: 8px 0;
-      color: #e0e0e0;
-    }
-
-    a {
-      color: #00ffe0;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .highlight {
-      color: #ffb300;
-    }
-
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    h1 { font-family: 'Orbitron', sans-serif; font-size: 3.2em; color: #00ffe0; margin: 12px 0; text-shadow: 0 0 12px #000; }
+    p { font-size: 1.1em; margin: 6px 0; }
+    a { color: #00ffe0; text-decoration: none; font-weight: bold; }
+    .highlight { color: #ffb300; }
     .profile-pic {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 3px solid #00ffe0;
-      margin-top: 20px;
-      box-shadow: 0 0 15px #000;
+      width: 150px; height: 150px; border-radius: 50%;
+      border: 3px solid #00ffe0; margin-top: 20px; box-shadow: 0 0 20px #000;
     }
-
-    .socials {
+    .socials { margin-top: 30px; }
+    .socials a {
+      display: inline-block; margin: 6px 12px; padding: 8px 14px;
+      border-radius: 30px; background: rgba(0, 0, 0, 0.4);
+      color: #00ffe0; transition: all 0.3s ease;
+    }
+    .socials a:hover { background-color: #00ffe0; color: #000; }
+    .tools-section, .game-section, .blog-section {
+      margin-top: 60px; background: rgba(255, 255, 255, 0.07);
+      padding: 25px; border-radius: 14px; max-width: 800px;
+      margin-left: auto; margin-right: auto; box-shadow: 0 0 15px #000;
+    }
+    .tool-category { margin-top: 30px; }
+    .tool-card {
+      background: rgba(255, 255, 255, 0.05); padding: 18px;
+      margin: 12px 0; border-radius: 10px;
+      border: 1px solid #00ffe0;
+    }
+    .tool-card h4 { color: #ffb300; margin-bottom: 6px; }
+    .game-section button, .toggle-theme {
+      margin: 10px; padding: 12px 18px; border: none; border-radius: 30px;
+      font-weight: bold; background-color: #00ffe0; color: #000;
+      cursor: pointer; transition: all 0.3s ease;
+    }
+    .game-section button:hover, .toggle-theme:hover { background-color: #ffb300; color: #000; }
+    .search-box {
       margin-top: 30px;
     }
-
-    .socials a {
-      display: inline-block;
-      margin: 0 10px;
-      padding: 6px 12px;
-      border-radius: 20px;
-      background: rgba(0, 0, 0, 0.4);
-      color: #00ffe0;
-      transition: 0.3s ease;
-    }
-
-    .socials a:hover {
-      background-color: #00ffe0;
-      color: #000;
-    }
-
-    .video-section {
-      margin-top: 60px;
-    }
-
-    iframe {
-      width: 90%;
-      max-width: 600px;
-      height: 315px;
+    .search-box input {
+      padding: 10px 20px;
+      border-radius: 25px;
       border: none;
-      margin-top: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #000;
+      width: 300px;
+      max-width: 90%;
     }
-
-    .tools-section {
-      margin-top: 60px;
-    }
-
-    .tool-card {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 600px;
-      border-radius: 12px;
-      border: 1px solid #00ffe0;
-      box-shadow: 0 0 15px #000;
-    }
-
-    .tool-card h3 {
-      color: #ffb300;
-    }
-
-    footer {
-      margin-top: 60px;
-      font-size: 0.85em;
-      color: #bbb;
-    }
-
+    footer { margin-top: 60px; font-size: 0.85em; color: #bbb; }
     @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-      iframe {
-        height: 200px;
-      }
+      h1 { font-size: 2.2em; }
     }
   </style>
 </head>
@@ -127,6 +80,11 @@
   <p>By <strong>Nitish Rathore ✨</strong></p>
   <p>📩 Contact: <a href="mailto:planckmind@gmail.com">planckmind@gmail.com</a></p>
 
+  <button class="toggle-theme" onclick="toggleTheme()">🌗 Toggle Theme</button>
+  <div class="search-box">
+    <input type="text" placeholder="Search AI tools... (not functional yet)" />
+  </div>
+
   <div class="socials">
     <p>🔗 Connect with Me:</p>
     <a href="https://youtube.com/@PlanckMind" target="_blank">YouTube</a>
@@ -135,31 +93,89 @@
     <a href="https://t.me/PlanckMind" target="_blank">Telegram</a>
   </div>
 
- 
+  <div class="game-section">
+    <h2>🕹️ Play Rock Paper Scissors</h2>
+    <p>Try beating AI in a classic game! ✊ ✋ ✌️</p>
+    <div>
+      <button onclick="playGame('rock')">Rock</button>
+      <button onclick="playGame('paper')">Paper</button>
+      <button onclick="playGame('scissors')">Scissors</button>
+    </div>
+    <p id="game-result" style="margin-top:20px;font-weight:bold;font-size:1.1em;"></p>
+  </div>
+
+  <div class="blog-section">
+    <h2>🧾 Learn About AI & PlanckMind</h2>
+    <p><strong>What is AI?</strong> Artificial Intelligence (AI) is the simulation of human intelligence in machines that are programmed to think, learn, and adapt.</p>
+    <p><strong>How AI Works:</strong> AI uses algorithms and vast data sets to recognize patterns, make predictions, and automate tasks — from chatting to image creation.</p>
+    <p><strong>What is PlanckMind?</strong> "Planck" represents the smallest unit in physics, and "Mind" symbolizes intelligence — together, PlanckMind is the core of smart simplicity in AI learning.</p>
+  </div>
+
   <div class="tools-section">
-    <h2>🧠 Featured AI Tools</h2>
-
-    <div class="tool-card">
-      <h3>Leonardo AI</h3>
-      <p>Generate stunning images with simple text prompts. Great for thumbnails and art.</p>
-      <a href="https://leonardo.ai" target="_blank">Try Leonardo AI</a>
+    <h2>🧠 25+ Best Free AI Tools</h2>
+    <div class="tool-category">
+      <h3>📷 Image Generation</h3>
+      <div class="tool-card"><h4>Leonardo AI</h4><p>Image generation with styles & prompts. <a href="https://leonardo.ai" target="_blank">Try Now</a></p></div>
+      <div class="tool-card"><h4>Ideogram AI</h4><p>Text to image + word styling. <a href="https://ideogram.ai" target="_blank">Try Now</a></p></div>
+      <div class="tool-card"><h4>Midjourney</h4><p>High-quality art via Discord. <a href="https://midjourney.com" target="_blank">Try Now</a></p></div>
     </div>
-
-    <div class="tool-card">
-      <h3>ChatGPT</h3>
-      <p>Use powerful prompts to write, code, and create like a pro.</p>
-      <a href="https://chat.openai.com" target="_blank">Try ChatGPT</a>
+    <div class="tool-category">
+      <h3>🎥 Video Generation</h3>
+      <div class="tool-card"><h4>Pika Labs</h4><p>AI animations from text. <a href="https://pika.art" target="_blank">Try Now</a></p></div>
+      <div class="tool-card"><h4>Sora by OpenAI</h4><p>Realistic AI video (coming soon). <a href="https://openai.com/sora" target="_blank">Learn More</a></p></div>
+      <div class="tool-card"><h4>Runway</h4><p>Video editing & gen. <a href="https://runwayml.com" target="_blank">Try Now</a></p></div>
     </div>
-
-    <div class="tool-card">
-      <h3>Kling AI</h3>
-      <p>Next-gen video generation AI for creatives and storytellers.</p>
-      <a href="https://kling.ai" target="_blank">Try Kling AI</a>
+    <div class="tool-category">
+      <h3>📝 Writing & Chat</h3>
+      <div class="tool-card"><h4>ChatGPT</h4><p>World’s most popular AI assistant. <a href="https://chat.openai.com" target="_blank">Use ChatGPT</a></p></div>
+      <div class="tool-card"><h4>Claude</h4><p>Anthropic’s natural writing AI. <a href="https://claude.ai" target="_blank">Try Claude</a></p></div>
+      <div class="tool-card"><h4>Google Gemini</h4><p>Google’s AI model for chat & writing. <a href="https://gemini.google.com" target="_blank">Try Gemini</a></p></div>
+    </div>
+    <div class="tool-category">
+      <h3>🎵 Music & Voice</h3>
+      <div class="tool-card"><h4>Suno AI</h4><p>Turn text into full songs. <a href="https://suno.com" target="_blank">Try Now</a></p></div>
+      <div class="tool-card"><h4>ElevenLabs</h4><p>AI voice generation & dubbing. <a href="https://elevenlabs.io" target="_blank">Try Now</a></p></div>
+    </div>
+    <div class="tool-category">
+      <h3>📊 Productivity</h3>
+      <div class="tool-card"><h4>Notion AI</h4><p>Automate your Notion workspace. <a href="https://notion.so" target="_blank">Try Now</a></p></div>
+      <div class="tool-card"><h4>Gamma</h4><p>Create presentations with AI. <a href="https://gamma.app" target="_blank">Try Now</a></p></div>
+      <div class="tool-card"><h4>Rewind AI</h4><p>Record everything on your screen. <a href="https://rewind.ai" target="_blank">Try Now</a></p></div>
+    </div>
+    <div class="tool-category">
+      <h3>🧩 Others</h3>
+      <div class="tool-card"><h4>Durable</h4><p>Make a website in 30 seconds. <a href="https://durable.co" target="_blank">Try Now</a></p></div>
+      <div class="tool-card"><h4>Perplexity AI</h4><p>AI-powered search engine. <a href="https://perplexity.ai" target="_blank">Try Now</a></p></div>
+      <div class="tool-card"><h4>Remove.bg</h4><p>Remove image background. <a href="https://remove.bg" target="_blank">Try Now</a></p></div>
     </div>
   </div>
 
   <footer>
     &copy; 2025 PlanckMind – All rights reserved.
   </footer>
+
+  <script>
+    function playGame(userChoice) {
+      const choices = ['rock', 'paper', 'scissors'];
+      const aiChoice = choices[Math.floor(Math.random() * 3)];
+      let result = '';
+      if (userChoice === aiChoice) {
+        result = `🤝 It's a draw! We both chose ${userChoice}.`;
+      } else if (
+        (userChoice === 'rock' && aiChoice === 'scissors') ||
+        (userChoice === 'paper' && aiChoice === 'rock') ||
+        (userChoice === 'scissors' && aiChoice === 'paper')
+      ) {
+        result = `🎉 You Win! ${userChoice} beats ${aiChoice}.`;
+      } else {
+        result = `😢 You Lose! ${aiChoice} beats ${userChoice}.`;
+      }
+      document.getElementById('game-result').innerText = result;
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle('light-theme');
+    }
+  </script>
 </body>
 </html>
