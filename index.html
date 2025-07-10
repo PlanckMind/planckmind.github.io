@@ -3,933 +3,928 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nitish Rathore | PlanckMind</title>
+    <title>PlanckMind | Exploring the Universe of AI</title>
+    <meta name="description" content="Official website of PlanckMind YouTube channel - AI tools, tutorials, and cutting-edge technology">
+    <meta name="keywords" content="AI, artificial intelligence, PlanckMind, Nitish Rathore, YouTube, machine learning">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
         :root {
-            --primary: #4361ee;
-            --secondary: #3f37c9;
-            --accent: #4895ef;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --light-gray: #e9ecef;
-            --transition: all 0.3s ease;
-            --shadow: 0 5px 15px rgba(0,0,0,0.08);
-            --shadow-hover: 0 8px 25px rgba(0,0,0,0.12);
-            --radius: 12px;
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --light: #f1f1f1;
+            --gold: #ffd700;
+            --transition: all 0.4s ease;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+        [data-theme="dark"] {
+            --primary: #121212;
+            --secondary: #1e1e1e;
+            --accent: #2d2d2d;
+            --highlight: #ff6b6b;
+            --light: #e0e0e0;
         }
-        
+
         body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary);
+            color: var(--light);
+            transition: var(--transition);
             overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        /* PlanckMind Animation Section */
-        .plankmind-concept {
-            text-align: center;
-            padding: 60px 0 40px;
-            position: relative;
-            margin-bottom: 40px;
-        }
-        
-        .animation-container {
-            position: relative;
-            height: 200px;
-            margin: 0 auto 40px;
-            width: 100%;
-            max-width: 600px;
-        }
-        
-        .ai-brain {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 6rem;
-            color: var(--primary);
-            opacity: 0.8;
-            animation: pulse 4s infinite alternate;
-        }
-        
-        .brain-piece {
-            position: absolute;
-            font-size: 1.8rem;
-            opacity: 0;
-            animation: pieceFloat 8s infinite;
-        }
-        
-        .smallest-unit {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2.5rem;
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
             font-weight: 700;
-            color: var(--primary);
-            opacity: 0;
-            text-shadow: 0 2px 10px rgba(67, 97, 238, 0.3);
         }
-        
-        .plankmind-text {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-top: 10px;
-            opacity: 0;
+
+        .vintage-border {
+            border: 3px double var(--highlight);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(233, 69, 96, 0.3);
+        }
+
+        .profile-section {
             position: relative;
-            display: inline-block;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            border-bottom: 1px solid rgba(233, 69, 96, 0.5);
         }
-        
-        .plankmind-text::after {
-            content: "The Smallest Possible Consciousness";
-            position: absolute;
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--gray);
-            width: 100%;
-            text-align: center;
-            font-style: italic;
-        }
-        
-        .arrow {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3rem;
-            color: var(--primary);
-            opacity: 0;
-        }
-        
-        header {
-            text-align: center;
-            padding: 20px 0 30px;
-            position: relative;
-        }
-        
-        .profile-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 25px;
-        }
-        
+
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
+            border: 3px solid var(--highlight);
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid white;
-            box-shadow: var(--shadow);
-            position: relative;
-            z-index: 2;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             transition: var(--transition);
         }
-        
+
         .profile-img:hover {
             transform: scale(1.05);
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 0 20px var(--highlight);
         }
-        
-        .decoration {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            top: -15px;
-            left: -15px;
-            z-index: 1;
-            opacity: 0.1;
-            animation: pulse 6s infinite alternate;
+
+        .channel-name {
+            font-size: 3.5rem;
+            color: var(--light);
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.7);
+            letter-spacing: 1px;
+            margin: 20px 0;
+            animation: glow 2s infinite alternate;
         }
-        
-        .decoration-2 {
-            width: 220px;
-            height: 220px;
-            top: -25px;
-            left: -25px;
-            animation-delay: 2s;
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(233, 69, 96, 0.7); }
+            to { text-shadow: 0 0 20px rgba(233, 69, 96, 0.9), 0 0 30px rgba(233, 69, 96, 0.6); }
         }
-        
-        h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            color: var(--dark);
+
+        .subscribe-btn {
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(204, 0, 0, 0.4);
+            margin: 15px 0;
+        }
+
+        .subscribe-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(204, 0, 0, 0.6);
+            background: linear-gradient(45deg, #cc0000, #ff0000);
+        }
+
+        .banner-slider {
+            height: 500px;
+            overflow: hidden;
             position: relative;
-            display: inline-block;
-        }
-        
-        h1::after {
-            content: "✨✨";
-            position: absolute;
-            right: -50px;
-            top: -10px;
-            font-size: 1.8rem;
-        }
-        
-        .tagline {
-            font-size: 1.4rem;
-            color: var(--gray);
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.8;
-        }
-        
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             margin: 30px 0;
-            flex-wrap: wrap;
         }
-        
-        .social-icon {
-            width: 60px;
-            height: 60px;
+
+        .banner-slide {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .social-icons {
+            margin: 25px 0;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
+            margin: 0 10px;
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: var(--highlight);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        .newsletter {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--highlight);
+        }
+
+        .game-container {
+            background: rgba(15, 52, 96, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .cell {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            text-decoration: none;
+            font-size: 3rem;
+            cursor: pointer;
             transition: var(--transition);
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .social-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
+
+        .cell:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.03);
+        }
+
+        .game-message {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 20px 0;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .crown-icon {
+            color: var(--gold);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        .danger-icon {
+            color: var(--highlight);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .tools-section {
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 15px;
+            padding: 40px 20px;
+            margin: 40px 0;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             height: 100%;
-            background: linear-gradient(45deg, rgba(255,255,255,0.2), transparent);
-            opacity: 0;
-            transition: var(--transition);
         }
-        
-        .social-icon:hover {
-            transform: translateY(-5px) rotate(5deg);
-            box-shadow: var(--shadow-hover);
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-color: var(--highlight);
         }
-        
-        .social-icon:hover::before {
-            opacity: 1;
+
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--highlight);
+            margin-bottom: 15px;
         }
-        
-        .email {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+
+        .tool-category {
+            color: var(--highlight);
+            font-weight: bold;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .youtube {
-            background: linear-gradient(45deg, #ff0000, #ff5e5e);
-        }
-        
-        .instagram {
-            background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045);
-        }
-        
-        .twitter {
-            background: linear-gradient(45deg, #1da1f2, #1a91da);
-        }
-        
-        .telegram {
-            background: linear-gradient(45deg, #0088cc, #00aced);
-        }
-        
-        .section {
+
+        .blog-section {
             margin: 50px 0;
-            padding: 40px;
-            border-radius: var(--radius);
-            background: white;
-            box-shadow: var(--shadow);
-            position: relative;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
             overflow: hidden;
-        }
-        
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 5px;
+            transition: var(--transition);
             height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            color: var(--dark);
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .blog-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
             position: relative;
             padding-left: 20px;
         }
-        
-        h2::after {
-            content: '';
+
+        .testimonial-text:before {
+            content: """;
             position: absolute;
-            bottom: -10px;
-            left: 20px;
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-        
-        p {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-        
-        .highlight {
-            background: linear-gradient(120deg, rgba(67, 97, 238, 0.1) 0%, rgba(67, 97, 238, 0) 100%);
-            padding: 20px;
-            border-radius: var(--radius);
-            border-left: 3px solid var(--primary);
-            margin: 30px 0;
-        }
-        
-        .inquiry {
-            text-align: center;
-            font-size: 1.2rem;
-            margin-top: 30px;
-            padding: 20px;
-            background: var(--light);
-            border-radius: var(--radius);
-        }
-        
-        .inquiry a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            position: relative;
-        }
-        
-        .inquiry a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
             left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
+            top: -10px;
+            font-size: 4rem;
+            color: var(--highlight);
+            opacity: 0.3;
         }
-        
-        .inquiry a:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
+
+        .search-container {
+            max-width: 600px;
+            margin: 40px auto;
         }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .tool-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
+
+        .search-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--highlight);
+            border-radius: 50px;
+            padding: 10px 20px;
             transition: var(--transition);
-            border: 1px solid var(--light-gray);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
         }
-        
-        .tool-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+
+        .search-box:focus-within {
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
         }
-        
-        .tool-icon {
-            height: 100px;
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.8rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-        }
-        
-        .tool-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .tool-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: var(--dark);
-        }
-        
-        .tool-card p {
-            color: var(--gray);
-            font-size: 1rem;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        
-        .tool-link {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--light);
-            border-radius: 30px;
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: var(--transition);
-            text-align: center;
-            border: 1px solid var(--light-gray);
-        }
-        
-        .tool-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .categories {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        
-        .category-btn {
-            padding: 10px 20px;
-            background: var(--light);
-            border-radius: 30px;
-            color: var(--gray);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            border: 1px solid var(--light-gray);
             cursor: pointer;
+            transition: var(--transition);
         }
-        
-        .category-btn.active, .category-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+
+        .theme-toggle:hover {
+            background: var(--highlight);
+            transform: rotate(30deg);
         }
-        
-        footer {
-            text-align: center;
-            padding: 50px 0 30px;
-            color: var(--gray);
-            font-size: 1rem;
-            margin-top: 30px;
-            position: relative;
+
+        .footer {
+            background: var(--secondary);
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(233, 69, 96, 0.3);
         }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 1px;
-            background: var(--light-gray);
-        }
-        
+
         .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 15px;
-            display: inline-block;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--light);
         }
-        
-        /* Animations */
-        @keyframes pulse {
-            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
-            100% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
-        
-        @keyframes pieceFloat {
-            0% { 
-                transform: translate(0, 0) rotate(0deg);
-                opacity: 0;
-            }
-            20% { 
-                opacity: 1;
-            }
-            80% { 
-                opacity: 1;
-            }
-            100% { 
-                transform: translate(var(--tx), var(--ty)) rotate(var(--r));
-                opacity: 0;
-            }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        
-        @keyframes revealSmallest {
-            0% { 
-                transform: translate(-50%, -50%) scale(0.1);
-                opacity: 0;
-            }
-            100% { 
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes revealArrow {
-            0% { 
-                transform: translate(-50%, -50%) scale(0.1);
-                opacity: 0;
-            }
-            100% { 
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 1;
-            }
-        }
-        
-        @keyframes revealText {
-            0% { 
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            100% { 
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
+
         @media (max-width: 768px) {
-            .section {
-                padding: 30px 20px;
-            }
-            
-            h1 {
+            .channel-name {
                 font-size: 2.5rem;
             }
             
-            h1::after {
-                right: -40px;
-                font-size: 1.5rem;
+            .banner-slider {
+                height: 300px;
             }
             
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .tools-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .plankmind-text {
-                font-size: 2.8rem;
-            }
-            
-            .ai-brain {
-                font-size: 4rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .social-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h1::after {
-                right: -30px;
-                top: -5px;
-                font-size: 1.2rem;
-            }
-            
-            .section {
-                margin: 30px 0;
-                padding: 25px 15px;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .categories {
-                gap: 10px;
-            }
-            
-            .category-btn {
-                padding: 8px 15px;
-                font-size: 0.9rem;
-            }
-            
-            .plankmind-text {
-                font-size: 2.2rem;
-            }
-            
-            .plankmind-text::after {
-                font-size: 1rem;
-                bottom: -25px;
-            }
-            
-            .ai-brain {
-                font-size: 3rem;
+            .game-board {
+                max-width: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- PlanckMind Concept Animation -->
-        <section class="plankmind-concept">
-            <div class="animation-container" id="brainAnimation">
-                <div class="ai-brain">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <div class="smallest-unit">0,1</div>
-                <div class="arrow">➔</div>
-            </div>
-            <div class="plankmind-text">PlanckMind</div>
-        </section>
-        
-        <header>
-            <div class="profile-container">
-                <div class="decoration"></div>
-                <div class="decoration decoration-2"></div>
-                <img src="sci%20dp.jpg" alt="Nitish Rathore" class="profile-img">
-            </div>
-            <h1>Nitish Rathore</h1>
-            <div class="tagline">
-                Content Creator & Educator passionate about sharing knowledge and inspiring others through productivity, personal development, and creative expression.
-            </div>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Header and Profile Section -->
+    <header class="profile-section text-center">
+        <div class="container">
+            <img src="https://via.placeholder.com/150/0f3460/ffffff?text=ND" alt="Nitish Rathore" class="profile-img">
+            <h1 class="channel-name">PlanckMind</h1>
+            <h3>Nitish Rathore</h3>
+            <a href="https://youtube.com/@PlanckMind" target="_blank" class="btn subscribe-btn">
+                <i class="fab fa-youtube"></i> Subscribe
+            </a>
             
             <div class="social-icons">
-                <a href="mailto:PlanckMind@gmail.com" class="social-icon email" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://youtube.com/@PlanckMind" target="_blank" class="social-icon youtube" title="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://instagram.com/PlanckMind" target="_blank" class="social-icon instagram" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://twitter.com/PlanckMind" target="_blank" class="social-icon twitter" title="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://t.me/PlanckMind" target="_blank" class="social-icon telegram" title="Telegram">
-                    <i class="fab fa-telegram"></i>
-                </a>
+                <a href="https://youtube.com/@PlanckMind" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://instagram.com/PlanckMind" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/PlanckMind" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://t.me/PlanckMind" target="_blank"><i class="fab fa-telegram"></i></a>
+                <a href="mailto:PlanckMind@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
-        </header>
+        </div>
+    </header>
+
+    <!-- Banner Slider -->
+    <section class="container">
+        <div class="banner-slider vintage-border">
+            <div class="banner-slide" style="background-image: url('https://images.unsplash.com/photo-1677442135722-5f5f46f4f7e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'); opacity: 1;"></div>
+            <div class="banner-slide" style="background-image: url('https://images.unsplash.com/photo-1677442135133-33d364e7d1f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="banner-slide" style="background-image: url('https://images.unsplash.com/photo-1677442134950-8f5f3b6a5b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="banner-slide" style="background-image: url('https://images.unsplash.com/photo-1677442135722-5f5f46f4f7e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="banner-slide" style="background-image: url('https://images.unsplash.com/photo-1677442135133-33d364e7d1f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');"></div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="container">
+        <div class="newsletter vintage-border animate-on-scroll">
+            <h3 class="text-center mb-4">Stay Updated with PlanckMind</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email address" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                        <p class="text-center mt-3">Get notified about new videos, AI tools, and exclusive content</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tic Tac Toe Game -->
+    <section class="container game-container vintage-border animate-on-scroll">
+        <h2 class="section-title">Save Earth from AI</h2>
+        <p class="text-center mb-4">Play against the AI to save humanity! Win to crown Earth's savior, lose and the robots take over.</p>
         
-        <section class="section">
-            <h2>About Me</h2>
-            <p>Hello! I'm Nitish Rathore, a content creator and educator with a mission to make learning accessible, enjoyable, and transformative. Through my PlanckMind platform, I explore the intersection of productivity, technology, and consciousness, helping people unlock their potential and live more intentional lives.</p>
-            
-            <div class="highlight">
-                <p>The concept of PlanckMind represents the smallest possible unit of consciousness - the fundamental building block of awareness. Just as Planck length is the smallest measurable unit in physics, PlanckMind represents the irreducible element of conscious thought.</p>
-            </div>
-            
-            <p>With a background in education and technology, I bring a unique perspective to content creation. My journey began as a teacher, evolved into content creation, and has now grown into a multi-platform educational ecosystem reaching thousands of learners worldwide.</p>
-            
-            <div class="inquiry">
-                <p>For business inquiries and collaborations: <a href="mailto:PlanckMind@gmail.com">PlanckMind@gmail.com</a></p>
-            </div>
-        </section>
+        <div class="game-board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
         
-        <section class="section">
-            <h2>Featured Tools & Resources</h2>
-            <p>After years of creating content and optimizing workflows, I've curated the best tools that boost productivity, enhance creativity, and streamline workflows. Here are my top recommendations:</p>
-            
-            <div class="categories">
-                <div class="category-btn active">All Tools</div>
-                <div class="category-btn">Productivity</div>
-                <div class="category-btn">Creativity</div>
-                <div class="category-btn">Learning</div>
-                <div class="category-btn">Business</div>
-            </div>
-            
-            <div class="tools-grid">
-                <!-- Productivity Tools -->
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fab fa-notion"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Notion</h3>
-                        <p>All-in-one workspace for notes, tasks, wikis, and databases with powerful collaboration features.</p>
-                        <a href="#" class="tool-link">Explore Notion</a>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-tasks"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Todoist</h3>
-                        <p>Task manager and to-do list app that helps you organize and prioritize your projects.</p>
-                        <a href="#" class="tool-link">Try Todoist</a>
-                    </div>
-                </div>
-                
-                <!-- Creativity Tools -->
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fab fa-figma"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Figma</h3>
-                        <p>Collaborative interface design tool with real-time editing and prototyping capabilities.</p>
-                        <a href="#" class="tool-link">Design in Figma</a>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Canva</h3>
-                        <p>Create stunning designs with drag-and-drop simplicity and thousands of templates.</p>
-                        <a href="#" class="tool-link">Create with Canva</a>
-                    </div>
-                </div>
-                
-                <!-- Learning Tools -->
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Obsidian</h3>
-                        <p>Knowledge base that works on local Markdown files with powerful linking capabilities.</p>
-                        <a href="#" class="tool-link">Build Knowledge</a>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Readwise</h3>
-                        <p>Automatically sync and revisit your highlights from books, articles, and more.</p>
-                        <a href="#" class="tool-link">Sync Highlights</a>
-                    </div>
-                </div>
-                
-                <!-- Business Tools -->
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Calendly</h3>
-                        <p>Automate meeting scheduling without the back-and-forth emails.</p>
-                        <a href="#" class="tool-link">Schedule Meetings</a>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>ConvertKit</h3>
-                        <p>Email marketing platform built for creators with powerful automation features.</p>
-                        <a href="#" class="tool-link">Grow Your Audience</a>
-                    </div>
-                </div>
-                
-                <!-- Additional Tools -->
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Descript</h3>
-                        <p>Edit video and audio by editing text. Podcasting, screen recording, and more.</p>
-                        <a href="#" class="tool-link">Edit Media</a>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-microphone-alt"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Riverside.fm</h3>
-                        <p>Studio-quality recordings for podcasts and videos directly from your browser.</p>
-                        <a href="#" class="tool-link">Record Professionally</a>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>VS Code</h3>
-                        <p>Lightweight but powerful source code editor with built-in Git commands.</p>
-                        <a href="#" class="tool-link">Code Efficiently</a>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Dropbox</h3>
-                        <p>Secure file sharing, storage, and collaboration solution for teams.</p>
-                        <a href="#" class="tool-link">Store & Share</a>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-headphones"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Audacity</h3>
-                        <p>Free, open source audio editing software for podcasters and musicians.</p>
-                        <a href="#" class="tool-link">Edit Audio</a>
-                    </div>
-                </div>
-                
-                <div class="tool-card">
-                    <div class="tool-icon">
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>Procreate</h3>
-                        <p>Powerful digital illustration app for artists and designers on iPad.</p>
-                        <a href="#" class="tool-link">Create Art</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <div class="game-message">
+            <div class="crown-icon"><i class="fas fa-crown"></i></div>
+            <p>Your turn! Save the Earth!</p>
+        </div>
         
-        <footer>
-            <div class="footer-logo">PlanckMind</div>
-            <p>© 2023 Nitish Rathore. All Rights Reserved.</p>
-            <p>The Smallest Possible Consciousness ✨✨</p>
-        </footer>
-    </div>
-    
+        <div class="text-center">
+            <button id="reset-game" class="btn btn-outline-light">New Game</button>
+        </div>
+    </section>
+
+    <!-- AI Tools Section -->
+    <section class="container tools-section vintage-border animate-on-scroll">
+        <h2 class="section-title">Essential AI Tools</h2>
+        <p class="text-center mb-5">Curated collection of powerful AI tools to enhance your creativity and productivity</p>
+        
+        <div class="tool-category">🎨 Image & Art Generation</div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h4>Midjourney</h4>
+                    <p>AI-powered art creation from text prompts</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-robot"></i></div>
+                    <h4>DALL·E 3</h4>
+                    <p>Create realistic images from descriptions</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-palette"></i></div>
+                    <h4>Leonardo AI</h4>
+                    <p>Advanced image generation platform</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-font"></i></div>
+                    <h4>Ideogram AI</h4>
+                    <p>Text-to-image with typography focus</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-category">🎥 Video Generation & Editing</div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-film"></i></div>
+                    <h4>Runway ML</h4>
+                    <p>Next-gen video creation tools</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-video"></i></div>
+                    <h4>Pika Labs</h4>
+                    <p>AI video generation platform</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-magic"></i></div>
+                    <h4>Luma AI</h4>
+                    <p>Dream Machine for video creation</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-microphone-alt"></i></div>
+                    <h4>HeyGen</h4>
+                    <p>AI video presenter creation</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-category">✍️ Writing & Content Creation</div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-comment-alt"></i></div>
+                    <h4>ChatGPT</h4>
+                    <p>Advanced conversational AI</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Claude</h4>
+                    <p>AI assistant by Anthropic</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-feather-alt"></i></div>
+                    <h4>Jasper AI</h4>
+                    <p>AI content generator</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="tool-card">
+                    <div class="tool-icon"><i class="fas fa-check-circle"></i></div>
+                    <h4>GrammarlyGO</h4>
+                    <p>AI-powered writing assistant</p>
+                    <a href="#" class="btn btn-sm btn-outline-light">Explore</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="container blog-section animate-on-scroll">
+        <h2 class="section-title">AI Insights & History</h2>
+        <p class="text-center mb-5">Explore the fascinating journey of artificial intelligence</p>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1677442135722-5f5f46f4f7e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AI History" class="blog-img">
+                    <div class="p-4">
+                        <h4>The Birth of Artificial Intelligence</h4>
+                        <p>Explore how AI research began in the 1950s with pioneers like Alan Turing and John McCarthy.</p>
+                        <a href="#" class="btn btn-sm btn-outline-light">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1677442134950-8f5f3b6a5b1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Machine Learning" class="blog-img">
+                    <div class="p-4">
+                        <h4>Machine Learning Revolution</h4>
+                        <p>How machine learning transformed AI from rule-based systems to adaptive algorithms.</p>
+                        <a href="#" class="btn btn-sm btn-outline-light">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1677442135133-33d364e7d1f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Future of AI" class="blog-img">
+                    <div class="p-4">
+                        <h4>The Future of Artificial Intelligence</h4>
+                        <p>What does the future hold? AGI, ethics, and the impact of AI on society.</p>
+                        <a href="#" class="btn btn-sm btn-outline-light">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="container animate-on-scroll">
+        <h2 class="section-title">Community Voices</h2>
+        <p class="text-center mb-5">What our viewers say about PlanckMind</p>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">PlanckMind explains complex AI concepts in such an accessible way. My go-to channel for staying updated!</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="User" width="40" height="40" class="rounded-circle me-3">
+                        <div>
+                            <strong>Sarah Johnson</strong>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The AI tools section alone is worth subscribing. Discovered so many useful resources through this channel.</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="User" width="40" height="40" class="rounded-circle me-3">
+                        <div>
+                            <strong>Michael Chen</strong>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Nitish's deep knowledge and clear explanations make this channel stand out. Always learn something new!</p>
+                    <div class="d-flex align-items-center mt-3">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User" width="40" height="40" class="rounded-circle me-3">
+                        <div>
+                            <strong>Priya Sharma</strong>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="container animate-on-scroll">
+        <div class="search-container">
+            <h3 class="text-center mb-4">Search PlanckMind Content</h3>
+            <div class="search-box">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-transparent border-0 text-light" placeholder="Search videos, blogs, tools...">
+                    <button class="btn btn-link text-light"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo">PlanckMind</div>
+                    <p>Exploring the universe of artificial intelligence, one concept at a time.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light">Home</a></li>
+                        <li><a href="#" class="text-light">AI Tools</a></li>
+                        <li><a href="#" class="text-light">Tutorials</a></li>
+                        <li><a href="#" class="text-light">Blog</a></li>
+                        <li><a href="#" class="text-light">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4>Connect</h4>
+                    <div class="social-icons">
+                        <a href="https://youtube.com/@PlanckMind" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://instagram.com/PlanckMind" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://twitter.com/PlanckMind" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://t.me/PlanckMind" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="mailto:PlanckMind@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center">
+                <p>&copy; 2023 PlanckMind. All rights reserved. Created with passion for AI education.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // PlanckMind Animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const animationContainer = document.getElementById('brainAnimation');
-            const smallestUnit = document.querySelector('.smallest-unit');
-            const arrow = document.querySelector('.arrow');
-            const plankmindText = document.querySelector('.plankmind-text');
+        // Banner Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner-slide');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.style.opacity = 0);
+            slides[n].style.opacity = 1;
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Initialize slider
+        showSlide(0);
+        setInterval(nextSlide, 3000);
+        
+        // Tic Tac Toe Game
+        const cells = document.querySelectorAll('.cell');
+        const messageElement = document.querySelector('.game-message');
+        const resetButton = document.getElementById('reset-game');
+        const crownIcon = document.querySelector('.crown-icon');
+        const dangerIcon = document.querySelector('.danger-icon');
+        let currentPlayer = 'human';
+        let gameActive = true;
+        let gameState = ['', '', '', '', '', '', '', '', ''];
+        
+        const winningConditions = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+            [0, 4, 8], [2, 4, 6]             // diagonals
+        ];
+        
+        function handleCellClick(e) {
+            const cell = e.target;
+            const index = parseInt(cell.getAttribute('data-index'));
             
-            // Create brain pieces
-            for (let i = 0; i < 12; i++) {
-                const piece = document.createElement('div');
-                piece.className = 'brain-piece';
-                piece.innerHTML = '<i class="fas fa-brain"></i>';
-                
-                // Random properties
-                const tx = (Math.random() - 0.5) * 300;
-                const ty = (Math.random() - 0.5) * 300;
-                const r = Math.random() * 360;
-                const size = 0.2 + Math.random() * 0.8;
-                const delay = Math.random() * 2;
-                
-                piece.style.setProperty('--tx', `${tx}px`);
-                piece.style.setProperty('--ty', `${ty}px`);
-                piece.style.setProperty('--r', `${r}deg`);
-                piece.style.fontSize = `${size}rem`;
-                piece.style.animationDelay = `${delay}s`;
-                
-                animationContainer.appendChild(piece);
+            if (gameState[index] !== '' || !gameActive) return;
+            
+            // Human move
+            gameState[index] = 'human';
+            cell.innerHTML = '<i class="fas fa-user"></i>';
+            
+            if (checkWin('human')) {
+                endGame(false);
+                return;
             }
             
-            // Anate the brain pieces
-            setTimeout(() => {
-                // Hide the main brain
-                document.querySelector('.ai-brain').style.opacity = '0';
-                
-                // Show the smallest unit
-                smallestUnit.style.animation = 'revealSmallest 1.5s forwards';
-                
-                // Show the arrow
-                setTimeout(() => {
-                    arrow.style.animation = 'revealArrow 1s forwards';
-                    
-                    // Show the PlanckMind text
-                    setTimeout(() => {
-                        plankmindText.style.animation = 'revealText 1s forwards';
-                    }, 500);
-                }, 800);
-            }, 2000);
+            if (checkDraw()) {
+                endGame(true);
+                return;
+            }
             
-            // Animation for category buttons
-            document.querySelectorAll('.category-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    document.querySelectorAll('.category-btn').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                });
-            });
+            // AI move
+            currentPlayer = 'ai';
+            setTimeout(makeAIMove, 600);
+        }
+        
+        function makeAIMove() {
+            if (!gameActive) return;
             
-            // Tool card hover effect
-            document.querySelectorAll('.tool-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.querySelector('.tool-icon').style.background = 'linear-gradient(135deg, #3a0ca3 0%, #4361ee 100%)';
-                });
-                card.addEventListener('mouseleave', function() {
-                    this.querySelector('.tool-icon').style.background = 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)';
-                });
-            });
+            // Simple AI: try to win, then block, then random
+            let move = findWinningMove('ai') || findWinningMove('human') || findRandomMove();
+            
+            if (move !== -1) {
+                gameState[move] = 'ai';
+                cells[move].innerHTML = '<i class="fas fa-robot"></i>';
+                
+                if (checkWin('ai')) {
+                    endGame(false);
+                    return;
+                }
+                
+                if (checkDraw()) {
+                    endGame(true);
+                    return;
+                }
+            }
+            
+            currentPlayer = 'human';
+        }
+        
+        function findWinningMove(player) {
+            for (let condition of winningConditions) {
+                let [a, b, c] = condition;
+                if (gameState[a] === player && gameState[b] === player && gameState[c] === '') return c;
+                if (gameState[a] === player && gameState[c] === player && gameState[b] === '') return b;
+                if (gameState[b] === player && gameState[c] === player && gameState[a] === '') return a;
+            }
+            return null;
+        }
+        
+        function findRandomMove() {
+            let emptyCells = [];
+            for (let i = 0; i < gameState.length; i++) {
+                if (gameState[i] === '') emptyCells.push(i);
+            }
+            if (emptyCells.length > 0) {
+                return emptyCells[Math.floor(Math.random() * emptyCells.length)];
+            }
+            return -1;
+        }
+        
+        function checkWin(player) {
+            for (let condition of winningConditions) {
+                let [a, b, c] = condition;
+                if (gameState[a] === player && gameState[b] === player && gameState[c] === player) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function checkDraw() {
+            return !gameState.includes('');
+        }
+        
+        function endGame(draw) {
+            gameActive = false;
+            
+            if (draw) {
+                messageElement.innerHTML = '<p>It\'s a draw! Earth remains in balance.</p>';
+            } else if (currentPlayer === 'ai') {
+                messageElement.innerHTML = '<div class="danger-icon"><i class="fas fa-skull-crossbones"></i></div><p>Robots conquered Earth! Better luck next time.</p>';
+            } else {
+                messageElement.innerHTML = '<div class="crown-icon"><i class="fas fa-crown"></i></div><p>You saved Earth! Humanity is safe for now.</p>';
+            }
+        }
+        
+        function resetGame() {
+            gameActive = true;
+            currentPlayer = 'human';
+            gameState = ['', '', '', '', '', '', '', '', ''];
+            messageElement.innerHTML = '<div class="crown-icon"><i class="fas fa-crown"></i></div><p>Your turn! Save the Earth!</p>';
+            cells.forEach(cell => cell.innerHTML = '');
+        }
+        
+        // Event Listeners for Game
+        cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+        resetButton.addEventListener('click', resetGame);
+        
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.setAttribute('data-theme', 
+                document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+            
+            themeIcon.classList.toggle('fa-moon');
+            themeIcon.classList.toggle('fa-sun');
         });
+        
+        // Scroll Animation
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Initialize animations
+        animateOnScroll();
     </script>
 </body>
 </html>
