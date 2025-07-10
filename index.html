@@ -115,20 +115,20 @@
       position: relative;
     }
 
-.profile-img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 5px solid #00e5ff; /* Direct color instead of var(--accent) */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease; /* Instead of var(--transition) */
-}
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--accent);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: var(--transition);
+    }
 
-.profile-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 35px rgba(0, 229, 255, 0.4);
-}
+    .profile-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0, 229, 255, 0.4);
+    }
 
     .ai-badge {
       position: absolute;
@@ -693,7 +693,7 @@
     
     <div class="header-content floating">
       <div class="profile-container">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Nitish Rathore" class="profile-img">
+        <img src="pro.jpg" alt="Nitish Rathore" class="profile-img">
         <div class="ai-badge">AI Expert</div>
       </div>
       
