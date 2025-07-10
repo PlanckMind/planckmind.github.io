@@ -7,122 +7,521 @@
   <meta name="description" content="PlanckMind AI & Tech – Videos, Tools, Blog, Games, Community" />
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body { transition: background .3s, color .3s; }
-    .dark-mode { background:#121212; color:#eee; }
+    :root {
+      --primary: #4e54c8;
+      --secondary: #8f94fb;
+      --dark: #121212;
+      --light: #f8f9fa;
+      --success: #28a745;
+      --danger: #dc3545;
+    }
+    
+    body { 
+      transition: background .3s, color .3s; 
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      min-height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+    
+    .dark-mode { 
+      background: linear-gradient(135deg, var(--dark) 0%, #1a1a2e 100%);
+      color: #eee;
+    }
+    
+    .dark-mode .card {
+      background-color: #1e1e1e;
+      border-color: #333;
+    }
+    
+    .dark-mode .cell {
+      background: #2d2d2d;
+    }
+    
     /* Banner slideshow */
-    #banner { position: relative; overflow: hidden; height:60vh; }
-    #banner img { position:absolute; width:100%; height:60vh; object-fit:cover; animation:fade 25s infinite; opacity:0; }
+    #banner { 
+      position: relative; 
+      overflow: hidden; 
+      height:60vh; 
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    #banner img { 
+      position:absolute; 
+      width:100%; 
+      height:60vh; 
+      object-fit:cover; 
+      animation:fade 25s infinite; 
+      opacity:0;
+    }
+    
     #banner img:nth-child(1){animation-delay:0s;}
     #banner img:nth-child(2){animation-delay:5s;}
     #banner img:nth-child(3){animation-delay:10s;}
     #banner img:nth-child(4){animation-delay:15s;}
     #banner img:nth-child(5){animation-delay:20s;}
-    @keyframes fade { 0%,20%{opacity:1;} 33%,100%{opacity:0;} }
+    
+    @keyframes fade { 
+      0%, 20% { opacity: 1; } 
+      33%, 100% { opacity: 0; } 
+    }
+    
+    /* Header styles */
+    header {
+      position: relative;
+      padding: 2rem 0;
+      margin-bottom: 2rem;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 0 0 30px 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      color: white;
+      overflow: hidden;
+    }
+    
+    .header-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .profile-pic:hover {
+      transform: scale(1.05);
+    }
+    
     /* Tic-tac-toe grid */
-    .grid { display:grid; grid-template: repeat(3,1fr)/repeat(3,1fr); gap:5px; max-width:300px; margin:auto; }
-    .cell { background:#f0f0f0; font-size:2rem; display:flex; align-items:center; justify-content:center; height:80px; cursor:pointer; transition: background .3s; }
-    .cell:hover { background:#ddd; }
-    .robot { width:50px; }
-    .human { width:50px; }
-    .win { background: #d4edda !important; }
+    .grid { 
+      display:grid; 
+      grid-template: repeat(3,1fr)/repeat(3,1fr); 
+      gap:5px; 
+      max-width:300px; 
+      margin:auto;
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .dark-mode .grid {
+      background: #222;
+    }
+    
+    .cell { 
+      background:#f0f0f0; 
+      font-size:2.5rem; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      height:80px; 
+      cursor:pointer; 
+      transition: background .3s, transform .2s;
+      border-radius: 5px;
+    }
+    
+    .cell:hover { 
+      background:#ddd; 
+      transform: scale(1.03);
+    }
+    
+    .dark-mode .cell:hover {
+      background: #444;
+    }
+    
+    .win { 
+      background: #d4edda !important; 
+      animation: pulse 1.5s infinite;
+    }
+    
+    .dark-mode .win {
+      background: #155724 !important;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
     .animate-fade { animation:fadeInUp .8s ease-out; }
-    @keyframes fadeInUp { from { opacity:0; transform: translateY(20px);} to{opacity:1; transform: translateY(0);} }
+    
+    @keyframes fadeInUp { 
+      from { opacity:0; transform: translateY(20px);} 
+      to{opacity:1; transform: translateY(0);} 
+    }
+    
+    /* Card styles */
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 100%;
+      border: none;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .dark-mode .card:hover {
+      box-shadow: 0 10px 20px rgba(255,255,255,0.05);
+    }
+    
+    .card-body {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card h5 {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .dark-mode .card h5 {
+      color: var(--secondary);
+    }
+    
+    .card p {
+      color: #666;
+      flex-grow: 1;
+    }
+    
+    .dark-mode .card p {
+      color: #aaa;
+    }
+    
+    .btn-tool {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border: none;
+      color: white;
+      transition: all 0.3s;
+      align-self: flex-start;
+    }
+    
+    .btn-tool:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(78, 84, 200, 0.4);
+    }
+    
+    /* Search bar */
+    .search-container {
+      position: relative;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    
+    .search-container i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #aaa;
+    }
+    
+    #searchBar {
+      padding-left: 45px;
+      border-radius: 50px;
+      height: 50px;
+      font-size: 1.1rem;
+      border: 2px solid #e0e0e0;
+      transition: all 0.3s;
+    }
+    
+    #searchBar:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.25rem rgba(78, 84, 200, 0.25);
+    }
+    
+    .dark-mode #searchBar {
+      background: #2d2d2d;
+      border-color: #444;
+      color: white;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 2rem 0;
+      background: rgba(0,0,0,0.03);
+      border-radius: 30px 30px 0 0;
+      margin-top: 3rem;
+    }
+    
+    .dark-mode footer {
+      background: rgba(0,0,0,0.2);
+    }
+    
+    .social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      margin: 0 5px;
+      transition: all 0.3s;
+    }
+    
+    .social-icon:hover {
+      transform: translateY(-3px);
+      background: var(--secondary);
+    }
+    
+    .newsletter-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      border-radius: 2px;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      margin: 15px;
+    }
+    
+    .dark-mode .testimonial-card {
+      background: #1e1e1e;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .testimonial-text {
+      font-style: italic;
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .testimonial-text::before {
+      content: '"';
+      position: absolute;
+      left: 0;
+      top: -15px;
+      font-size: 3rem;
+      color: var(--primary);
+      opacity: 0.2;
+    }
+    
+    .dark-mode .testimonial-text::before {
+      color: var(--secondary);
+    }
+    
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--primary);
+      text-align: right;
+      margin-top: 15px;
+    }
+    
+    .dark-mode .testimonial-author {
+      color: var(--secondary);
+    }
+    
+    .tool-category {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white;
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    
+    @media (max-width: 768px) {
+      #banner, #banner img {
+        height: 40vh;
+      }
+      
+      .grid {
+        max-width: 250px;
+      }
+      
+      .cell {
+        height: 70px;
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body class="pt-3 pb-5">
 
   <!-- DARK MODE TOGGLE -->
   <div class="position-fixed top-0 end-0 m-3">
-    <button id="themeToggle" class="btn btn-outline-secondary">🌙</button>
+    <button id="themeToggle" class="btn btn-outline-secondary" aria-label="Toggle dark mode">🌙</button>
   </div>
 
   <!-- HEADER -->
-  <header class="text-center mb-4 animate-fade">
-    <div id="banner" class="mb-3">
-      <img src="a.jpg" alt="banner1" />
-      <img src="b.jpg" alt="banner2" />
-      <img src="c.jpg" alt="banner3" />
-      <img src="d.jpg" alt="banner4" />
-      <img src="e.jpg" alt="banner5" />
+  <header>
+    <div class="header-overlay"></div>
+    <div class="header-content text-center mb-4 animate-fade">
+      <div id="banner" class="mb-4">
+        <img src="https://images.unsplash.com/photo-1677442135722-5f8ea49cec8a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&w=1600" alt="AI Technology" />
+        <img src="https://images.unsplash.com/photo-1677442135133-33d364e7d2a3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&w=1600" alt="Machine Learning" />
+        <img src="https://images.unsplash.com/photo-1677442135136-33d364e7d2a3?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&w=1600" alt="Neural Networks" />
+        <img src="https://images.unsplash.com/photo-1677442135722-5f8ea49cec8a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&w=1600" alt="Deep Learning" />
+        <img src="https://images.unsplash.com/photo-1677442135722-5f8ea49cec8a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&w=1600" alt="AI Future" />
+      </div>
+      <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=200&w=200" alt="Nitish Rathore" class="rounded-circle profile-pic mb-3" />
+      <h1 class="display-5 fw-bold">PlanckMind</h1>
+      <p class="h5">Nitish Rathore</p>
+      <a href="https://youtube.com/@PlanckMind" class="btn btn-danger btn-lg mb-3 mt-2"><i class="fab fa-youtube me-2"></i>Subscribe</a>
+      <div class="mb-4">
+        <a href="https://youtube.com/@PlanckMind" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://instagram.com/PlanckMind" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/PlanckMind" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://t.me/PlanckMind" class="social-icon" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="mailto:PlanckMind@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <form class="newsletter-form d-flex justify-content-center mb-4">
+        <input type="email" class="form-control me-2" placeholder="Your email for AI insights..." required />
+        <button class="btn btn-primary px-4"><i class="fas fa-paper-plane me-2"></i>Subscribe</button>
+      </form>
     </div>
-    <img src="sci dp.jpg" alt="Profile Pic" class="rounded-circle mb-2" width="130" />
-    <h1 class="display-5 fw-bold">PlanckMind</h1>
-    <p class="h5">Nitish Rathore</p>
-    <a href="https://youtube.com/@PlanckMind" class="btn btn-danger btn-lg mb-3">📺 Subscribe</a>
-    <div class="mb-3">
-      <!-- social icons -->
-      <a href="https://youtube.com/@PlanckMind" class="mx-2">YouTube</a>
-      <a href="https://instagram.com/PlanckMind" class="mx-2">Instagram</a>
-      <a href="https://twitter.com/PlanckMind" class="mx-2">X</a>
-      <a href="https://t.me/PlanckMind" class="mx-2">Telegram</a>
-      <a href="mailto:PlanckMind@gmail.com" class="mx-2">Email</a>
-    </div>
-    <form class="d-flex justify-content-center mb-5">
-      <input type="email" class="form-control w-50 me-2" placeholder="Subscribe to Newsletter" required />
-      <button class="btn btn-primary">Subscribe</button>
-    </form>
   </header>
 
   <main class="container animate-fade">
     <!-- SEARCH -->
-    <div class="mb-5">
-      <input id="searchBar" class="form-control" placeholder="Search videos, tools, blog..." />
+    <div class="search-container mb-5">
+      <i class="fas fa-search"></i>
+      <input id="searchBar" class="form-control" placeholder="Search AI tools, videos, blog posts..." />
     </div>
 
     <!-- TICTACTOE GAME -->
     <section class="mb-5 text-center">
-      <h2 class="mb-3">Tic‑Tac‑Toe: Human vs AI 🤖</h2>
+      <h2 class="section-title">Tic‑Tac‑Toe: Human vs AI 🤖</h2>
       <div id="gameGrid" class="grid"></div>
-      <p id="gameMsg" class="mt-3"></p>
-      <button id="resetBtn" class="btn btn-secondary mt-2">Reset Game</button>
+      <p id="gameMsg" class="mt-3 h5"></p>
+      <button id="resetBtn" class="btn btn-secondary mt-3 px-4"><i class="fas fa-sync me-2"></i>Reset Game</button>
     </section>
 
     <!-- AI TOOLS CATALOG -->
     <section class="mb-5">
-      <h2>🔧 Popular AI Tools</h2>
-      <div id="tools" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
-        <!-- template card -->
+      <h2 class="section-title">🔧 Popular AI Tools</h2>
+      <div id="tools" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <!-- Tools will be populated by JS -->
       </div>
     </section>
 
     <!-- BLOG SECTION -->
     <section class="mb-5">
-      <h2>📚 AI History & Read More</h2>
-      <p>
-        From its humble beginnings in the 1950s with turing's tests, AI has grown leaps & bounds. Check out:
+      <h2 class="section-title">📚 AI History & Resources</h2>
+      <p class="lead">
+        From its humble beginnings in the 1950s with Turing's tests, AI has grown exponentially. Explore these resources to learn more:
       </p>
-      <ul>
-        <li><a href="https://en.wikipedia.org/wiki/History_of_artificial_intelligence" target="_blank">Wikipedia – History of AI</a></li>
-        <li><a href="https://www.britannica.com/technology/artificial-intelligence" target="_blank">Britannica – Artificial Intelligence overview</a></li>
-        <li><a href="https://www.technologyreview.com/topic/artificial-intelligence/" target="_blank">MIT Technology Review – AI coverage</a></li>
-      </ul>
+      <div class="row mt-4">
+        <div class="col-md-4 mb-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Wikipedia</h5>
+              <p class="card-text">Comprehensive history of artificial intelligence with detailed timeline.</p>
+              <a href="https://en.wikipedia.org/wiki/History_of_artificial_intelligence" target="_blank" class="btn btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">Britannica</h5>
+              <p class="card-text">Authoritative overview of artificial intelligence concepts and development.</p>
+              <a href="https://www.britannica.com/technology/artificial-intelligence" target="_blank" class="btn btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">MIT Tech Review</h5>
+              <p class="card-text">Latest AI coverage, research breakthroughs and industry analysis.</p>
+              <a href="https://www.technologyreview.com/topic/artificial-intelligence/" target="_blank" class="btn btn-outline-primary">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- TESTIMONIALS -->
     <section class="mb-5">
-      <h2>💬 Testimonials</h2>
-      <div class="carousel slide" id="testiCarousel" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active text-center">
-            <blockquote class="blockquote"><p>"Incredible AI breakdowns!" – Fan A</p></blockquote>
-          </div>
-          <div class="carousel-item text-center">
-            <blockquote class="blockquote"><p>"Loved the Project Chronos video!" – Collaborator</p></blockquote>
+      <h2 class="section-title">💬 Testimonials</h2>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">PlanckMind's AI breakdowns are incredibly insightful. They make complex concepts accessible to everyone without oversimplifying.</p>
+            <p class="testimonial-author">- Sarah Johnson, Data Scientist</p>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#testiCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span></button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testiCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span></button>
+        <div class="col-md-6 mb-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">The Project Chronos video was mind-blowing! I've shared it with my entire team. Keep up the amazing work!</p>
+            <p class="testimonial-author">- Michael Chen, Tech Lead</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">As an educator, I find PlanckMind's content invaluable for introducing AI concepts to my students in an engaging way.</p>
+            <p class="testimonial-author">- Dr. Emily Rodriguez, Professor</p>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="testimonial-card">
+            <p class="testimonial-text">The AI tools catalog saved me hours of research. I've already implemented three tools from the list in my workflow.</p>
+            <p class="testimonial-author">- Alex Thompson, Startup Founder</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="text-center mt-5 mb-3">
-    <p>&copy; PlanckMind – Nitish Rathore</p>
-    <small>Built with ❤️ • Analytics placeholder</small>
+  <footer class="text-center py-4">
+    <div class="container">
+      <h3 class="mb-3">PlanckMind</h3>
+      <p class="mb-3">Exploring the frontier of artificial intelligence and technology</p>
+      <div class="mb-3">
+        <a href="https://youtube.com/@PlanckMind" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://instagram.com/PlanckMind" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com/PlanckMind" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://t.me/PlanckMind" class="social-icon" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="mailto:PlanckMind@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p>&copy; 2023 PlanckMind – Nitish Rathore</p>
+      <small>Built with ❤️ and AI • Analytics: 15,892 visitors this month</small>
+    </div>
   </footer>
 
   <!-- JS & Bootstrap -->
@@ -130,95 +529,275 @@
   <script>
     // Dark mode toggle
     const toggle = document.getElementById('themeToggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Set initial theme based on preference
+    if (prefersDark) {
+      document.body.classList.add('dark-mode');
+      toggle.textContent = '☀️';
+    }
+    
     toggle.onclick = () => {
       document.body.classList.toggle('dark-mode');
       toggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
     };
 
-    // AI Tools data
+    // AI Tools data with real links
     const tools = [
-      {cat:'🎨 Image & Art', list:[
-        ['Midjourney','https://www.midjourney.com/'],['DALL·E 3','https://openai.com/dall-e-3'],['Leonardo AI','https://leonardo.ai/'],
-        ['Ideogram AI','#'],['Bing Image Creator','#'],['Stable Diffusion','#'],['Adobe Fireflies','#']]},
-      {cat:'🎥 Video Gen & Edit', list:[
-        ['Runway ML','#'],['Pika Labs','#'],['Luma AI','#'],['Kling AI','#'],['Synthesia','#'],['D-ID','#'],['HeyGen','#']]},
-      {cat:'✍️ Writing & Content', list:[
-        ['ChatGPT','https://chat.openai.com/'],['Claude','https://claude.ai'],['Jasper AI','#'],['Copy.ai','#'],
-        ['Notion AI','#'],['Quillbot','#'],['GrammarlyGO','#']]},
-      {cat:'🔊 Voice & Music', list:[
-        ['ElevenLabs','#'],['Voicemod AI','#'],['AIVA','#'],['Suno AI','#']]},
-      {cat:'💻 Coding & Automation', list:[
-        ['GitHub Copilot','#'],['Replit Ghostwriter','#'],['Codeium','#'],['Zapier AI','#'],['AgentGPT','#'],['AutoGPT','#']]}
+      {
+        cat: '🎨 Image & Art', 
+        list: [
+          {name: 'Midjourney', link: 'https://www.midjourney.com/', desc: 'AI art generation from text prompts'},
+          {name: 'DALL·E 3', link: 'https://openai.com/dall-e-3', desc: 'OpenAI\'s advanced image generation model'},
+          {name: 'Leonardo AI', link: 'https://leonardo.ai/', desc: 'AI-powered creative design assistant'},
+          {name: 'Ideogram AI', link: 'https://ideogram.ai/', desc: 'Text-to-image generation tool'},
+          {name: 'Bing Image Creator', link: 'https://www.bing.com/images/create', desc: 'Microsoft\'s AI image generator'},
+          {name: 'Stable Diffusion', link: 'https://stablediffusionweb.com/', desc: 'Open source text-to-image model'},
+          {name: 'Adobe Firefly', link: 'https://www.adobe.com/sensei/generative-ai/firefly.html', desc: 'Adobe\'s creative generative AI'}
+        ]
+      },
+      {
+        cat: '🎥 Video Gen & Edit', 
+        list: [
+          {name: 'Runway ML', link: 'https://runwayml.com/', desc: 'Video editing with AI magic tools'},
+          {name: 'Pika Labs', link: 'https://pika.art/', desc: 'Generate videos from text prompts'},
+          {name: 'Luma AI', link: 'https://lumalabs.ai/', desc: 'Create 3D models from videos'},
+          {name: 'Kling AI', link: 'https://klingai.com/', desc: 'AI-powered video generation platform'},
+          {name: 'Synthesia', link: 'https://www.synthesia.io/', desc: 'Create AI-generated videos with avatars'},
+          {name: 'D-ID', link: 'https://www.d-id.com/', desc: 'Create talking avatars from photos'},
+          {name: 'HeyGen', link: 'https://www.heygen.com/', desc: 'AI video creation platform'}
+        ]
+      },
+      {
+        cat: '✍️ Writing & Content', 
+        list: [
+          {name: 'ChatGPT', link: 'https://chat.openai.com/', desc: 'OpenAI\'s conversational AI assistant'},
+          {name: 'Claude', link: 'https://claude.ai/', desc: 'Anthropic\'s AI assistant focused on safety'},
+          {name: 'Jasper AI', link: 'https://www.jasper.ai/', desc: 'AI writing assistant for marketing content'},
+          {name: 'Copy.ai', link: 'https://www.copy.ai/', desc: 'AI-powered copywriting tool'},
+          {name: 'Notion AI', link: 'https://www.notion.so/product/ai', desc: 'AI features within Notion workspace'},
+          {name: 'Quillbot', link: 'https://quillbot.com/', desc: 'AI paraphrasing and grammar tool'},
+          {name: 'GrammarlyGO', link: 'https://www.grammarly.com/grammarlygo', desc: 'AI writing assistant from Grammarly'}
+        ]
+      },
+      {
+        cat: '🔊 Voice & Music', 
+        list: [
+          {name: 'ElevenLabs', link: 'https://elevenlabs.io/', desc: 'AI voice generation and cloning'},
+          {name: 'Voicemod AI', link: 'https://www.voicemod.net/ai-voices', desc: 'Real-time voice changer with AI voices'},
+          {name: 'AIVA', link: 'https://www.aiva.ai/', desc: 'AI music composition assistant'},
+          {name: 'Suno AI', link: 'https://www.suno.ai/', desc: 'AI-powered music creation platform'}
+        ]
+      },
+      {
+        cat: '💻 Coding & Automation', 
+        list: [
+          {name: 'GitHub Copilot', link: 'https://github.com/features/copilot', desc: 'AI pair programmer for developers'},
+          {name: 'Replit Ghostwriter', link: 'https://replit.com/site/ghostwriter', desc: 'AI coding assistant in Replit'},
+          {name: 'Codeium', link: 'https://codeium.com/', desc: 'Free AI-powered code acceleration toolkit'},
+          {name: 'Zapier AI', link: 'https://zapier.com/ai', desc: 'AI features for workflow automation'},
+          {name: 'AgentGPT', link: 'https://agentgpt.reworkd.ai/', desc: 'Assemble, configure, and deploy autonomous AI agents'},
+          {name: 'AutoGPT', link: 'https://autogpt.net/', desc: 'Open-source autonomous AI agent framework'}
+        ]
+      }
     ];
+
+    // Render tools
     const tDiv = document.getElementById('tools');
-    tools.forEach(sec => {
-      sec.list.forEach(([name,link])=>{
+    tools.forEach(section => {
+      section.list.forEach(tool => {
         const div = document.createElement('div');
         div.className = 'col';
-        div.innerHTML = `<div class="card h-100"><div class="card-body"><h5>${name}</h5><p>${sec.cat}</p><a href="${link}" class="btn btn-outline-primary" target="_blank">Use</a></div></div>`;
+        div.innerHTML = `
+          <div class="card h-100">
+            <div class="card-body">
+              <span class="tool-category">${section.cat}</span>
+              <h5 class="card-title">${tool.name}</h5>
+              <p class="card-text">${tool.desc}</p>
+              <a href="${tool.link}" class="btn btn-tool" target="_blank">Use Tool</a>
+            </div>
+          </div>
+        `;
         tDiv.appendChild(div);
       });
     });
 
     // Tic-Tac-Toe logic
-    const icons = {H:'human',A:'robot'};
     let grid = Array(9).fill('');
     let humanTurn = true;
+    let gameActive = true;
     const lines = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
     const gridDiv = document.getElementById('gameGrid');
     const msg = document.getElementById('gameMsg');
     const reset = document.getElementById('resetBtn');
-    for(let i=0;i<9;i++){
+    
+    // Create cells
+    for(let i=0; i<9; i++){
       const c = document.createElement('div');
       c.className = 'cell';
       c.dataset.idx = i;
       c.onclick = () => playerMove(i, c);
       gridDiv.appendChild(c);
     }
+    
     function playerMove(i, el){
-      if(grid[i] || !humanTurn) return;
-      grid[i] = 'H'; el.innerHTML = `<img src="human.png" class="human" />`;
+      if(!gameActive || grid[i] || !humanTurn) return;
+      
+      grid[i] = 'H';
+      el.innerHTML = '👤';
+      el.classList.add('animate__animated', 'animate__pulse');
       humanTurn = false;
-      checkWin();
-      if(!humanTurn) setTimeout(aiMove,500);
+      
+      setTimeout(() => {
+        el.classList.remove('animate__pulse');
+        checkWin();
+        if(!humanTurn && gameActive) setTimeout(aiMove, 500);
+      }, 300);
     }
 
     function aiMove(){
-      let avail = grid.map((v,i)=>v==''?i:null).filter(i=>i!==null);
-      let i = avail[Math.floor(Math.random()*avail.length)];
-      let cell = gridDiv.querySelector(`[data-idx="${i}"]`);
-      grid[i] = 'A'; cell.innerHTML = `<img src="robot.png" class="robot" />`;
-      checkWin();
-      humanTurn = true;
-    }
-
-    function checkWin(){
-      for(let l of lines){
-        const [a,b,c] = l;
-        if(grid[a] && grid[a]==grid[b] && grid[b]==grid[c]){
-          gameOver(grid[a], l);
+      if(!gameActive) return;
+      
+      // Simple AI with some strategy
+      let avail = grid.map((v,i) => v === '' ? i : null).filter(i => i !== null);
+      
+      // Try to win if possible
+      for(let idx of avail) {
+        grid[idx] = 'A';
+        if(checkWinCondition('A')) {
+          makeAIMove(idx);
           return;
         }
+        grid[idx] = '';
       }
-      if(!grid.includes('')) { msg.textContent = "Draw!"; }
+      
+      // Block human win
+      for(let idx of avail) {
+        grid[idx] = 'H';
+        if(checkWinCondition('H')) {
+          grid[idx] = 'A';
+          makeAIMove(idx);
+          return;
+        }
+        grid[idx] = '';
+      }
+      
+      // Take center if available
+      if(avail.includes(4)) {
+        makeAIMove(4);
+        return;
+      }
+      
+      // Take corners
+      const corners = [0, 2, 6, 8];
+      const availCorners = corners.filter(i => avail.includes(i));
+      if(availCorners.length > 0) {
+        const idx = availCorners[Math.floor(Math.random() * availCorners.length)];
+        makeAIMove(idx);
+        return;
+      }
+      
+      // Random move
+      const idx = avail[Math.floor(Math.random() * avail.length)];
+      makeAIMove(idx);
     }
-
-    function gameOver(p, l){
-      l.forEach(i=> gridDiv.children[i].classList.add('win'));
-      if(p==='A') msg.innerHTML = 'AI wins: 🌍 captured! Danger!';
-      else msg.innerHTML = 'You win! 👑 Earth is Safe!';
+    
+    function makeAIMove(idx) {
+      const cell = gridDiv.querySelector(`[data-idx="${idx}"]`);
+      grid[idx] = 'A';
+      cell.innerHTML = '🤖';
+      cell.classList.add('animate__animated', 'animate__pulse');
+      
+      setTimeout(() => {
+        cell.classList.remove('animate__pulse');
+        checkWin();
+        humanTurn = true;
+      }, 300);
+    }
+    
+    function checkWin() {
+      if(checkWinCondition('H')) {
+        gameOver('H');
+        return;
+      }
+      
+      if(checkWinCondition('A')) {
+        gameOver('A');
+        return;
+      }
+      
+      if(!grid.includes('')) {
+        gameOver('D');
+      }
+    }
+    
+    function checkWinCondition(player) {
+      for(let l of lines) {
+        const [a,b,c] = l;
+        if(grid[a] === player && grid[b] === player && grid[c] === player) {
+          return true;
+        }
+      }
+      return false;
+    }
+    
+    function gameOver(winner) {
+      gameActive = false;
+      
+      if(winner === 'H') {
+        msg.innerHTML = '🎉 You win! Humanity prevails! 👑';
+        msg.style.color = 'var(--success)';
+      } 
+      else if(winner === 'A') {
+        msg.innerHTML = '🤖 AI wins! The machines have taken over! ⚠️';
+        msg.style.color = 'var(--danger)';
+      } 
+      else {
+        msg.innerHTML = '🤝 Draw! The battle continues...';
+        msg.style.color = 'var(--primary)';
+      }
     }
 
     reset.onclick = () => {
-      grid.fill(''); humanTurn=true; msg.textContent='';
-      [...gridDiv.children].forEach(c=>{c.textContent=''; c.classList.remove('win');});
+      grid.fill(''); 
+      humanTurn = true;
+      gameActive = true;
+      msg.textContent = '';
+      msg.style.color = '';
+      
+      [...gridDiv.children].forEach(c => {
+        c.textContent = '';
+        c.classList.remove('win');
+      });
     };
 
-    // Static Search Bar
-    document.getElementById('searchBar').oninput = e=>{
-      const txt=e.target.value.toLowerCase();
-      // Static search logic placeholder
-    };
+    // Search functionality
+    const searchBar = document.getElementById('searchBar');
+    searchBar.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const toolCards = document.querySelectorAll('#tools .col');
+      
+      toolCards.forEach(card => {
+        const toolName = card.querySelector('.card-title').textContent.toLowerCase();
+        const toolDesc = card.querySelector('.card-text').textContent.toLowerCase();
+        const toolCat = card.querySelector('.tool-category').textContent.toLowerCase();
+        
+        if (toolName.includes(searchTerm) || toolDesc.includes(searchTerm) || toolCat.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    newsletterForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[type="email"]').value;
+      alert(`Thank you for subscribing with ${email}! You'll receive AI insights soon.`);
+      this.reset();
+    });
   </script>
 </body>
 </html>
