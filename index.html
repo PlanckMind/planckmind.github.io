@@ -1,16 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nitish Rathore - PlanckMind | AI Educator & Content Creator</title>
-  <meta name="description" content="PlanckMind simplifies AI tools through fun YouTube tutorials. Explore AI tools, tutorials, and resources.">
-  <meta name="keywords" content="AI tools, AI tutorials, PlanckMind, Nitish Rathore, Sora AI, Leonardo AI, Kling AI, Luna AI">
-  <meta name="author" content="Nitish Rathore">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nitish Rathore - PlanckMind | AI Educator &amp; Content Creator</title>
+<meta content="PlanckMind simplifies AI tools through fun YouTube tutorials. Explore AI tools, tutorials, and resources." name="description"/>
+<meta content="AI tools, AI tutorials, PlanckMind, Nitish Rathore, Sora AI, Leonardo AI, Kling AI, Luna AI" name="keywords"/>
+<meta content="Nitish Rathore" name="author"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Raleway:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<style>
     :root {
       --primary: #6e44ff;
       --primary-dark: #5a36d9;
@@ -1001,360 +1002,387 @@
     ::-webkit-scrollbar-thumb:hover {
       background: linear-gradient(var(--primary), var(--secondary));
     }
-  </style>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+  
+.search-toggle-container {
+  position: absolute;
+  top: 4%;
+  left: 30px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.search-input {
+  display: none;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  width: 200px;
+}
+.search-toggle {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.search-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.search-input {
+  display: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+  font-size: 1rem;
+  outline: none;
+  width: 200px;
+  background-color: white;
+  color: black;
+}
+.search-toggle {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+</style>
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🧠&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
 </head>
 <body>
-  <div id="particles-js"></div>
-  
-  <nav id="navbar">
-    <div class="container nav-container">
-      <a href="#" class="logo">
-        <i class="fas fa-brain"></i>
+<div id="particles-js"></div>
+<nav id="navbar">
+<div class="container nav-container">
+<a class="logo" href="#">
+<i class="fas fa-brain"></i>
         Planck<span>Mind</span>
+</a>
+<div class="nav-links">
+<a class="nav-link" href="#home">Home</a>
+<a class="nav-link" href="#videos">Videos</a>
+<a class="nav-link" href="#tools">AI Tools</a>
+<a class="nav-link" href="#contact">Contact</a>
+</div>
+
+</div>
+</nav>
+<header id="home">
+<div class="header-overlay"></div>
+<button class="theme-toggle" id="themeToggle">
+<i class="fas fa-sun"></i>
+</button>
+<div class="search-toggle-container" style="margin-top: 1rem;">
+<button class="search-toggle" onclick="toggleSearchBar()"><i class="fas fa-search"></i></button>
+<input class="search-input" id="searchInput" onkeyup="filterContent()" placeholder="Search..." type="text"/>
+</div>
+
+<div class="header-content floating">
+<div class="profile-container">
+<img alt="Nitish Rathore" class="profile-img" src="pro.jpg"/>
+<div class="ai-badge">AI Expert</div>
+</div>
+<h1>Nitish Rathore</h1>
+<div class="subtitle">AI Educator | Content Creator | Curious Mind</div>
+<p class="intro-text">I simplify AI tools and technology through fun and easy YouTube tutorials for everyone.</p>
+<div class="channel-name">PlanckMind YouTube Channel</div>
+<div class="social-icons">
+<a class="social-icon" href="https://youtube.com/@PlanckMind" target="_blank">
+<i class="fab fa-youtube"></i>
+</a>
+<a class="social-icon" href="https://instagram.com/PlanckMind" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+<a class="social-icon" href="https://twitter.com/PlanckMind" target="_blank">
+<i class="fab fa-twitter"></i>
+</a>
+<a class="social-icon" href="https://t.me/PlanckMind" target="_blank">
+<i class="fab fa-telegram"></i>
+</a>
+</div>
+<a class="btn" href="#videos" id="startLearningBtn">
+<i class="fas fa-play-circle"></i> Start Learning
       </a>
-      <div class="nav-links">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#videos" class="nav-link">Videos</a>
-        <a href="#tools" class="nav-link">AI Tools</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-    </div>
-  </nav>
-  
-  <header id="home">
-    <div class="header-overlay"></div>
-    <button class="theme-toggle" id="themeToggle">
-      <i class="fas fa-sun"></i>
-    </button>
-    
-    <div class="header-content floating">
-      <div class="profile-container">
-        <img src="pro.jpg" alt="Nitish Rathore" class="profile-img">
-        <div class="ai-badge">AI Expert</div>
-      </div>
-      
-      <h1>Nitish Rathore</h1>
-      <div class="subtitle">AI Educator | Content Creator | Curious Mind</div>
-      <p class="intro-text">I simplify AI tools and technology through fun and easy YouTube tutorials for everyone.</p>
-      <div class="channel-name">PlanckMind YouTube Channel</div>
-      
-      <div class="social-icons">
-        <a href="https://youtube.com/@PlanckMind" class="social-icon" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://instagram.com/PlanckMind" class="social-icon" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://twitter.com/PlanckMind" class="social-icon" target="_blank">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://t.me/PlanckMind" class="social-icon" target="_blank">
-          <i class="fab fa-telegram"></i>
-        </a>
-      </div>
-      
-      <a href="#videos" class="btn" id="startLearningBtn">
-        <i class="fas fa-play-circle"></i> Start Learning
-      </a>
-    </div>
-  </header>
-  
-  <section class="section videos" id="videos">
-    <div class="container">
-      <div class="section-title">
-        <h2>Latest AI Tutorials</h2>
-        <p>Explore my most popular AI tool tutorials and master cutting-edge technology</p>
-      </div>
-      
-      <div class="videos-grid">
-        <!-- Video 1 -->
-        <div class="video-card">
-          <div class="video-thumbnail">
-            <img src="https://img.youtube.com/vi/gJvVzfokRHs/maxresdefault.jpg" alt="Sora AI Tutorial">
-            <div class="play-icon">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <div class="video-content">
-            <h3 class="video-title">Sora AI Full Tutorial - Create Amazing Videos</h3>
-            <p>Learn how to use Sora AI to generate realistic videos from text prompts.</p>
-            <a href="https://youtu.be/gJvVzfokRHs?si=v4NakBokmpo0cdT0" class="video-link" target="_blank">Watch Now</a>
-          </div>
-        </div>
-        
-        <!-- Video 2 -->
-        <div class="video-card">
-          <div class="video-thumbnail">
-            <img src="https://img.youtube.com/vi/Y29pSlhpsJs/maxresdefault.jpg" alt="Leonardo AI Tutorial">
-            <div class="play-icon">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <div class="video-content">
-            <h3 class="video-title">Leonardo AI Full Tutorial in 2024</h3>
-            <p>Master Leonardo AI for creating stunning AI-generated artwork and designs.</p>
-            <a href="https://youtu.be/Y29pSlhpsJs?si=W-EeBwj6E9Pf0O7R" class="video-link" target="_blank">Watch Now</a>
-          </div>
-        </div>
-        
-        <!-- Video 3 -->
-        <div class="video-card">
-          <div class="video-thumbnail">
-            <img src="https://img.youtube.com/vi/2VQ5Pfy38WE/maxresdefault.jpg" alt="Kling AI Tutorial">
-            <div class="play-icon">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <div class="video-content">
-            <h3 class="video-title">Kling AI Full Tutorial in Hindi</h3>
-            <p>Step-by-step guide to using Kling AI for your projects in Hindi.</p>
-            <a href="https://youtu.be/2VQ5Pfy38WE?si=fey_XNRssjgdcmjE" class="video-link" target="_blank">Watch Now</a>
-          </div>
-        </div>
-        
-        <!-- Video 4 -->
-        <div class="video-card">
-          <div class="video-thumbnail">
-            <img src="https://img.youtube.com/vi/KhTdkgkubpY/maxresdefault.jpg" alt="Luna AI Tutorial">
-            <div class="play-icon">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <div class="video-content">
-            <h3 class="video-title">Luna AI Full Tutorial in Hindi</h3>
-            <p>Learn how to leverage Luna AI for your creative projects in Hindi.</p>
-            <a href="https://youtu.be/KhTdkgkubpY?si=1iJsiZEPL2bYkxpR" class="video-link" target="_blank">Watch Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="section ai-tools" id="tools">
-    <div class="container">
-      <div class="section-title">
-        <h2>Top AI Tools I Recommend</h2>
-        <p>These cutting-edge AI tools are transforming industries and empowering creators worldwide</p>
-      </div>
-      
-      <div class="tools-grid">
-        <!-- Tool 1 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png" alt="ChatGPT Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">1</div>
-            <h3 class="tool-title">ChatGPT</h3>
-            <p class="tool-description">Advanced AI chatbot by OpenAI that can understand and generate human-like text responses.</p>
-            <a href="https://chat.openai.com" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-        
-        <!-- Tool 2 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="mid.png" alt="Midjourney Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">2</div>
-            <h3 class="tool-title">Midjourney</h3>
-            <p class="tool-description">AI-powered tool that generates stunning images from natural language descriptions.</p>
-            <a href="https://www.midjourney.com" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-        
-        <!-- Tool 3 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="suno.png" alt="Suno AI Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">3</div>
-            <h3 class="tool-title">Suno AI</h3>
-            <p class="tool-description">Create AI-generated music in seconds from simple text prompts.</p>
-            <a href="https://www.suno.ai" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-        
-        <!-- Tool 4 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="clad.jpg" alt="Claude Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">4</div>
-            <h3 class="tool-title">Claude</h3>
-            <p class="tool-description">AI assistant created by Anthropic focused on being helpful, harmless, and honest.</p>
-            <a href="https://claude.ai" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-        
-        <!-- Tool 5 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="run.png" alt="Runway ML Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">5</div>
-            <h3 class="tool-title">Runway ML</h3>
-            <p class="tool-description">Creative toolkit that makes it easy to experiment with machine learning models.</p>
-            <a href="https://runwayml.com" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-        
-        <!-- Tool 6 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="pika.png" alt="Pika Labs Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">6</div>
-            <h3 class="tool-title">Pika Labs</h3>
-            <p class="tool-description">Generate and edit videos using AI with simple text prompts.</p>
-            <a href="https://www.pika.art" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-        
-        <!-- Tool 7 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="leo.png" alt="Leonardo AI Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">7</div>
-            <h3 class="tool-title">Leonardo AI</h3>
-            <p class="tool-description">AI platform for creating production-quality visual assets with incredible detail.</p>
-            <a href="https://leonardo.ai" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-        
-        <!-- Tool 8 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="eleven.png" alt="ElevenLabs Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">8</div>
-            <h3 class="tool-title">ElevenLabs</h3>
-            <p class="tool-description">Most realistic and versatile AI speech software for creators and publishers.</p>
-            <a href="https://www.elevenlabs.io" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-        
-        <!-- Tool 9 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="prpx.png" alt="Perplexity AI Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">9</div>
-            <h3 class="tool-title">Perplexity AI</h3>
-            <p class="tool-description">AI-powered search engine that answers questions with cited sources.</p>
-            <a href="https://www.perplexity.ai" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-        
-        <!-- Tool 10 -->
-        <div class="tool-card">
-          <div class="tool-logo">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1200px-OpenAI_Logo.svg.png" alt="Sora by OpenAI Logo">
-          </div>
-          <div class="tool-content">
-            <div class="tool-number">10</div>
-            <h3 class="tool-title">Sora by OpenAI</h3>
-            <p class="tool-description">AI model that can create realistic and imaginative scenes from text instructions.</p>
-            <a href="https://openai.com/sora" class="tool-link" target="_blank">Visit Tool</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Get In Touch</h2>
-        <p>Have questions or collaboration ideas? Reach out anytime</p>
-      </div>
-      
-      <div class="contact-form-container">
-        <h3 class="form-title">Join the PlanckMind Community</h3>
-        <p class="form-description">Subscribe for updates on new tutorials and AI tools</p>
-        
-        <form id="emailSignupForm">
-          <div class="form-group">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="Your email" required>
-          </div>
-          
-          <button type="submit" class="submit-btn" id="submitBtn">
-            <span id="btnText">Subscribe Now</span>
-            <span id="spinner" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
-          </button>
-          
-          <div id="message" class="message"></div>
-        </form>
-      </div>
-    </div>
-  </section>
-  
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section footer-about">
-          <h3>About PlanckMind</h3>
-          <p>PlanckMind is dedicated to exploring the frontiers of artificial intelligence, emerging technologies, and their impact on society. We create content that educates, inspires, and empowers.</p>
-          <div class="social-icons">
-            <a href="https://youtube.com/@PlanckMind" class="social-icon" target="_blank">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://instagram.com/PlanckMind" class="social-icon" target="_blank">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://twitter.com/PlanckMind" class="social-icon" target="_blank">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://t.me/PlanckMind" class="social-icon" target="_blank">
-              <i class="fab fa-telegram"></i>
-            </a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <div class="footer-links">
-            <a href="#home" class="footer-link"><i class="fas fa-chevron-right"></i> Home</a>
-            <a href="#videos" class="footer-link"><i class="fas fa-chevron-right"></i> Videos</a>
-            <a href="#tools" class="footer-link"><i class="fas fa-chevron-right"></i> AI Tools</a>
-            <a href="#contact" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <div class="footer-links">
-            <a href="mailto:PlanckMind@gmail.com" class="footer-link"><i class="fas fa-envelope"></i> PlanckMind@gmail.com</a>
-            <a href="https://youtube.com/@PlanckMind" class="footer-link" target="_blank"><i class="fab fa-youtube"></i> YouTube Channel</a>
-            <a href="https://instagram.com/PlanckMind" class="footer-link" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-            <a href="https://twitter.com/PlanckMind" class="footer-link" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="copyright">
-        <p>&copy; 2025 Nitish Rathore · All rights reserved</p>
-      </div>
-    </div>
-  </footer>
-  
-  <script>
+</div>
+</header>
+<section class="section videos" id="videos">
+<div class="container">
+<div class="section-title">
+<h2>Latest AI Tutorials</h2>
+<p>Explore my most popular AI tool tutorials and master cutting-edge technology</p>
+</div>
+<div class="videos-grid">
+<!-- Video 1 -->
+<div class="video-card">
+<div class="video-thumbnail">
+<img alt="Sora AI Tutorial" src="https://img.youtube.com/vi/gJvVzfokRHs/maxresdefault.jpg"/>
+<div class="play-icon">
+<i class="fas fa-play"></i>
+</div>
+</div>
+<div class="video-content">
+<h3 class="video-title">Sora AI Full Tutorial - Create Amazing Videos</h3>
+<p>Learn how to use Sora AI to generate realistic videos from text prompts.</p>
+<a class="video-link" href="https://youtu.be/gJvVzfokRHs?si=v4NakBokmpo0cdT0" target="_blank">Watch Now</a>
+</div>
+</div>
+<!-- Video 2 -->
+<div class="video-card">
+<div class="video-thumbnail">
+<img alt="Leonardo AI Tutorial" src="https://img.youtube.com/vi/Y29pSlhpsJs/maxresdefault.jpg"/>
+<div class="play-icon">
+<i class="fas fa-play"></i>
+</div>
+</div>
+<div class="video-content">
+<h3 class="video-title">Leonardo AI Full Tutorial in 2024</h3>
+<p>Master Leonardo AI for creating stunning AI-generated artwork and designs.</p>
+<a class="video-link" href="https://youtu.be/Y29pSlhpsJs?si=W-EeBwj6E9Pf0O7R" target="_blank">Watch Now</a>
+</div>
+</div>
+<!-- Video 3 -->
+<div class="video-card">
+<div class="video-thumbnail">
+<img alt="Kling AI Tutorial" src="https://img.youtube.com/vi/2VQ5Pfy38WE/maxresdefault.jpg"/>
+<div class="play-icon">
+<i class="fas fa-play"></i>
+</div>
+</div>
+<div class="video-content">
+<h3 class="video-title">Kling AI Full Tutorial in Hindi</h3>
+<p>Step-by-step guide to using Kling AI for your projects in Hindi.</p>
+<a class="video-link" href="https://youtu.be/2VQ5Pfy38WE?si=fey_XNRssjgdcmjE" target="_blank">Watch Now</a>
+</div>
+</div>
+<!-- Video 4 -->
+<div class="video-card">
+<div class="video-thumbnail">
+<img alt="Luna AI Tutorial" src="https://img.youtube.com/vi/KhTdkgkubpY/maxresdefault.jpg"/>
+<div class="play-icon">
+<i class="fas fa-play"></i>
+</div>
+</div>
+<div class="video-content">
+<h3 class="video-title">Luna AI Full Tutorial in Hindi</h3>
+<p>Learn how to leverage Luna AI for your creative projects in Hindi.</p>
+<a class="video-link" href="https://youtu.be/KhTdkgkubpY?si=1iJsiZEPL2bYkxpR" target="_blank">Watch Now</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section ai-tools" id="tools">
+<div class="container">
+<div class="section-title">
+<h2>Top AI Tools I Recommend</h2>
+<p>These cutting-edge AI tools are transforming industries and empowering creators worldwide</p>
+</div>
+<div class="tools-grid">
+<!-- Tool 1 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="ChatGPT Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">1</div>
+<h3 class="tool-title">ChatGPT</h3>
+<p class="tool-description">Advanced AI chatbot by OpenAI that can understand and generate human-like text responses.</p>
+<a class="tool-link" href="https://chat.openai.com" target="_blank">Visit Tool</a>
+</div>
+</div>
+<!-- Tool 2 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="Midjourney Logo" src="mid.png"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">2</div>
+<h3 class="tool-title">Midjourney</h3>
+<p class="tool-description">AI-powered tool that generates stunning images from natural language descriptions.</p>
+<a class="tool-link" href="https://www.midjourney.com" target="_blank">Visit Tool</a>
+</div>
+</div>
+<!-- Tool 3 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="Suno AI Logo" src="suno.png"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">3</div>
+<h3 class="tool-title">Suno AI</h3>
+<p class="tool-description">Create AI-generated music in seconds from simple text prompts.</p>
+<a class="tool-link" href="https://www.suno.ai" target="_blank">Visit Tool</a>
+</div>
+</div>
+<!-- Tool 4 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="Claude Logo" src="clad.jpg"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">4</div>
+<h3 class="tool-title">Claude</h3>
+<p class="tool-description">AI assistant created by Anthropic focused on being helpful, harmless, and honest.</p>
+<a class="tool-link" href="https://claude.ai" target="_blank">Visit Tool</a>
+</div>
+</div>
+<!-- Tool 5 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="Runway ML Logo" src="run.png"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">5</div>
+<h3 class="tool-title">Runway ML</h3>
+<p class="tool-description">Creative toolkit that makes it easy to experiment with machine learning models.</p>
+<a class="tool-link" href="https://runwayml.com" target="_blank">Visit Tool</a>
+</div>
+</div>
+<!-- Tool 6 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="Pika Labs Logo" src="pika.png"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">6</div>
+<h3 class="tool-title">Pika Labs</h3>
+<p class="tool-description">Generate and edit videos using AI with simple text prompts.</p>
+<a class="tool-link" href="https://www.pika.art" target="_blank">Visit Tool</a>
+</div>
+</div>
+<!-- Tool 7 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="Leonardo AI Logo" src="leo.png"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">7</div>
+<h3 class="tool-title">Leonardo AI</h3>
+<p class="tool-description">AI platform for creating production-quality visual assets with incredible detail.</p>
+<a class="tool-link" href="https://leonardo.ai" target="_blank">Visit Tool</a>
+</div>
+</div>
+<!-- Tool 8 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="ElevenLabs Logo" src="eleven.png"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">8</div>
+<h3 class="tool-title">ElevenLabs</h3>
+<p class="tool-description">Most realistic and versatile AI speech software for creators and publishers.</p>
+<a class="tool-link" href="https://www.elevenlabs.io" target="_blank">Visit Tool</a>
+</div>
+</div>
+<!-- Tool 9 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="Perplexity AI Logo" src="prpx.png"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">9</div>
+<h3 class="tool-title">Perplexity AI</h3>
+<p class="tool-description">AI-powered search engine that answers questions with cited sources.</p>
+<a class="tool-link" href="https://www.perplexity.ai" target="_blank">Visit Tool</a>
+</div>
+</div>
+<!-- Tool 10 -->
+<div class="tool-card">
+<div class="tool-logo">
+<img alt="Sora by OpenAI Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1200px-OpenAI_Logo.svg.png"/>
+</div>
+<div class="tool-content">
+<div class="tool-number">10</div>
+<h3 class="tool-title">Sora by OpenAI</h3>
+<p class="tool-description">AI model that can create realistic and imaginative scenes from text instructions.</p>
+<a class="tool-link" href="https://openai.com/sora" target="_blank">Visit Tool</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="contact">
+<div class="container">
+<div class="section-title">
+<h2>Get In Touch</h2>
+<p>Have questions or collaboration ideas? Reach out anytime</p>
+</div>
+<div class="contact-form-container">
+<h3 class="form-title">Join the PlanckMind Community</h3>
+<p class="form-description">Subscribe for updates on new tutorials and AI tools</p>
+<form id="emailSignupForm">
+<div class="form-group">
+<label class="form-label" for="name">Name</label>
+<input class="form-input" id="name" name="name" placeholder="Your name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="email">Email</label>
+<input class="form-input" id="email" name="email" placeholder="Your email" required="" type="email"/>
+</div>
+<button class="submit-btn" id="submitBtn" type="submit">
+<span id="btnText">Subscribe Now</span>
+<span id="spinner" style="display:none;"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+</button>
+<div class="message" id="message"></div>
+</form>
+</div>
+</div>
+</section>
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-section footer-about">
+<h3>About PlanckMind</h3>
+<p>PlanckMind is dedicated to exploring the frontiers of artificial intelligence, emerging technologies, and their impact on society. We create content that educates, inspires, and empowers.</p>
+<div class="social-icons">
+<a class="social-icon" href="https://youtube.com/@PlanckMind" target="_blank">
+<i class="fab fa-youtube"></i>
+</a>
+<a class="social-icon" href="https://instagram.com/PlanckMind" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+<a class="social-icon" href="https://twitter.com/PlanckMind" target="_blank">
+<i class="fab fa-twitter"></i>
+</a>
+<a class="social-icon" href="https://t.me/PlanckMind" target="_blank">
+<i class="fab fa-telegram"></i>
+</a>
+</div>
+</div>
+<div class="footer-section">
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a class="footer-link" href="#home"><i class="fas fa-chevron-right"></i> Home</a>
+<a class="footer-link" href="#videos"><i class="fas fa-chevron-right"></i> Videos</a>
+<a class="footer-link" href="#tools"><i class="fas fa-chevron-right"></i> AI Tools</a>
+<a class="footer-link" href="#contact"><i class="fas fa-chevron-right"></i> Contact</a>
+</div>
+</div>
+<div class="footer-section">
+<h3>Contact Info</h3>
+<div class="footer-links">
+<a class="footer-link" href="mailto:PlanckMind@gmail.com"><i class="fas fa-envelope"></i> PlanckMind@gmail.com</a>
+<a class="footer-link" href="https://youtube.com/@PlanckMind" target="_blank"><i class="fab fa-youtube"></i> YouTube Channel</a>
+<a class="footer-link" href="https://instagram.com/PlanckMind" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+<a class="footer-link" href="https://twitter.com/PlanckMind" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+</div>
+</div>
+</div>
+<div class="copyright">
+<p>© 2025 Nitish Rathore · All rights reserved</p>
+</div>
+</div>
+</footer>
+<script>
     // Theme Toggle Functionality
     const themeToggle = document.getElementById('themeToggle');
     const themeIcon = themeToggle.querySelector('i');
@@ -1544,5 +1572,45 @@
       }
     });
   </script>
-</body>
+<script>
+function toggleSearchBar() {
+  const input = document.getElementById("searchInput");
+  input.style.display = input.style.display === "block" ? "none" : "block";
+  if (input.style.display === "block") input.focus();
+}
+
+function filterContent() {
+  const input = document.getElementById("searchInput");
+  const filter = input.value.toLowerCase();
+  const cards = document.querySelectorAll(".video-card, .tool-card");
+
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(filter) ? "block" : "none";
+  });
+}
+
+function toggleSearchBar() {
+  const input = document.getElementById("searchInput");
+  input.style.display = input.style.display === "block" ? "none" : "block";
+  if (input.style.display === "block") input.focus();
+}
+
+function filterContent() {
+  const input = document.getElementById("searchInput");
+  const filter = input.value.toLowerCase();
+  const searchable = document.querySelectorAll("body *:not(script):not(style)");
+
+  searchable.forEach(el => {
+    if (el.children.length === 0 && el.textContent.trim() !== "") {
+      if (el.textContent.toLowerCase().includes(filter)) {
+        el.style.backgroundColor = "yellow";
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        el.style.backgroundColor = "";
+      }
+    }
+  });
+}
+</script></body>
 </html>
