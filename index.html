@@ -8,7 +8,7 @@
   <meta name="keywords" content="AI tools, AI tutorials, PlanckMind, Nitish Rathore, Sora AI, Leonardo AI, Kling AI, Luna AI">
   <meta name="author" content="Nitish Rathore">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <style>
     :root {
@@ -24,12 +24,13 @@
       --dark-gray: #2a324b;
       --text: #0d1b2a;
       --text-light: #e0e1dd;
-      --card-bg: rgba(255, 255, 255, 0.85);
-      --card-bg-dark: rgba(30, 33, 46, 0.9);
-      --header-bg: rgba(18, 24, 38, 0.8);
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --card-bg-dark: rgba(30, 33, 46, 0.95);
+      --header-bg: rgba(18, 24, 38, 0.85);
       --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      --shadow: 0 8px 30px rgba(110, 68, 255, 0.2);
-      --shadow-dark: 0 8px 30px rgba(0, 0, 0, 0.4);
+      --shadow: 0 8px 30px rgba(110, 68, 255, 0.25);
+      --shadow-dark: 0 8px 30px rgba(0, 0, 0, 0.45);
+      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
     } 
 
     [data-theme="light"] {
@@ -47,8 +48,8 @@
       --text-light: #343a40;
       --card-bg: rgba(255, 255, 255, 0.95);
       --card-bg-dark: rgba(248, 249, 250, 0.95);
-      --header-bg: rgba(255, 255, 255, 0.9);
-      --shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      --header-bg: rgba(255, 255, 255, 0.92);
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     } 
 
     * {
@@ -65,6 +66,8 @@
       line-height: 1.6;
       overflow-x: hidden;
       background: linear-gradient(135deg, var(--darker), var(--dark));
+      min-height: 100vh;
+      position: relative;
     } 
 
     h1, h2, h3, h4, h5, h6 {
@@ -115,8 +118,9 @@
       padding: 40px;
       border-radius: 20px;
       background: var(--header-bg);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     } 
 
     .profile-container {
@@ -139,7 +143,7 @@
 
     .profile-img:hover {
       transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(0, 229, 255, 0.4);
+      box-shadow: 0 15px 35px rgba(0, 229, 255, 0.5);
       border-color: var(--secondary);
     }
 
@@ -162,25 +166,32 @@
     }
 
     @keyframes glow {
-      0% { box-shadow: 0 0 5px var(--accent); }
-      50% { box-shadow: 0 0 20px var(--accent-alt); }
-      100% { box-shadow: 0 0 5px var(--accent); }
+      0% { box-shadow: 0 0 5px var(--accent), 0 0 15px rgba(0, 229, 255, 0.3); }
+      50% { box-shadow: 0 0 20px var(--accent-alt), 0 0 30px rgba(255, 209, 102, 0.5); }
+      100% { box-shadow: 0 0 5px var(--accent), 0 0 15px rgba(0, 229, 255, 0.3); }
     }
 
     .ai-badge {
       position: absolute;
       top: -10px;
       right: -10px;
-      background: var(--secondary);
+      background: var(--gradient);
       color: white;
       font-weight: bold;
       padding: 8px 15px;
       border-radius: 30px;
       font-size: 0.9rem;
       transform: rotate(10deg);
-      box-shadow: 0 5px 15px rgba(255, 77, 148, 0.3);
+      box-shadow: 0 5px 15px rgba(255, 77, 148, 0.4);
       z-index: 2;
+      animation: pulse 2s infinite;
     } 
+
+    @keyframes pulse {
+      0% { transform: rotate(10deg) scale(1); }
+      50% { transform: rotate(10deg) scale(1.05); }
+      100% { transform: rotate(10deg) scale(1); }
+    }
 
     .header-content h1 {
       font-size: 3.5rem;
@@ -211,14 +222,15 @@
 
     .channel-name {
       display: inline-block;
-      background: var(--primary);
+      background: var(--gradient);
       color: white;
       padding: 8px 20px;
       border-radius: 30px;
       font-weight: bold;
       margin-top: 10px;
       font-size: 1.2rem;
-      box-shadow: 0 5px 15px rgba(110, 68, 255, 0.3);
+      box-shadow: 0 5px 15px rgba(110, 68, 255, 0.35);
+      animation: float 4s ease-in-out infinite;
     } 
 
     .social-icons {
@@ -240,12 +252,13 @@
       font-size: 1.5rem;
       transition: var(--transition);
       text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     } 
 
     .social-icon:hover {
       background: var(--primary);
-      transform: translateY(-5px) scale(1.1);
-      box-shadow: 0 5px 15px rgba(110, 68, 255, 0.4);
+      transform: translateY(-5px) scale(1.15);
+      box-shadow: 0 5px 15px rgba(110, 68, 255, 0.5);
     } 
 
     .theme-toggle {
@@ -267,17 +280,19 @@
       z-index: 1000;
       backdrop-filter: blur(5px);
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     } 
 
     .theme-toggle:hover {
       background: var(--primary);
-      transform: rotate(15deg);
+      transform: rotate(15deg) scale(1.1);
+      box-shadow: 0 8px 20px rgba(110, 68, 255, 0.4);
     } 
 
     .btn {
       display: inline-block;
       padding: 12px 30px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: var(--gradient);
       color: white;
       border-radius: 30px;
       text-decoration: none;
@@ -285,14 +300,34 @@
       margin-top: 20px;
       font-size: 1.1rem;
       transition: var(--transition);
-      box-shadow: 0 5px 15px rgba(110, 68, 255, 0.3);
+      box-shadow: 0 5px 15px rgba(110, 68, 255, 0.35);
       border: none;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
     }
 
     .btn:hover {
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(255, 77, 148, 0.4);
+      box-shadow: 0 8px 20px rgba(255, 77, 148, 0.5);
+    }
+
+    .btn:hover::before {
+      opacity: 1;
     }
 
     /* Navigation */
@@ -329,15 +364,27 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      transition: var(--transition);
     } 
+
+    .logo:hover {
+      transform: translateY(-3px);
+    }
 
     .logo span {
       color: var(--accent);
+      text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
     } 
 
     .logo i {
       color: var(--secondary);
+      animation: spin 8s linear infinite;
     } 
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
     .nav-links {
       display: flex;
@@ -393,6 +440,7 @@
       background: linear-gradient(90deg, var(--accent), var(--accent-alt));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     } 
 
     .section-title p {
@@ -400,6 +448,7 @@
       max-width: 700px;
       margin: 0 auto;
       font-size: 1.2rem;
+      opacity: 0.9;
     } 
 
     .section-title::after {
@@ -410,7 +459,7 @@
       transform: translateX(-50%);
       width: 100px;
       height: 5px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+      background: var(--gradient);
       border-radius: 5px;
     } 
 
@@ -426,15 +475,16 @@
     } 
 
     .video-card {
-      background: var(--card-bg);
+      background: var(--card-bg-dark);
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-dark);
       transition: var(--transition);
       backdrop-filter: blur(5px);
       transform: translateY(50px);
       opacity: 0;
       transition: all 0.6s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .video-card.visible {
@@ -444,7 +494,7 @@
 
     .video-card:hover {
       transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(110, 68, 255, 0.3);
+      box-shadow: 0 20px 40px rgba(110, 68, 255, 0.4);
     } 
 
     .video-thumbnail {
@@ -471,7 +521,7 @@
       transform: translate(-50%, -50%);
       width: 60px;
       height: 60px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.85);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -480,6 +530,7 @@
       font-size: 1.5rem;
       opacity: 0.8;
       transition: var(--transition);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     } 
 
     .video-card:hover .play-icon {
@@ -496,25 +547,31 @@
     .video-title {
       font-size: 1.3rem;
       margin-bottom: 10px;
-      color: var(--text);
+      color: var(--light);
     } 
+
+    .video-content p {
+      color: var(--text-light);
+      opacity: 0.8;
+    }
 
     .video-link {
       display: inline-block;
       margin-top: 15px;
       padding: 8px 20px;
-      background: var(--primary);
+      background: var(--gradient);
       color: white;
       border-radius: 30px;
       text-decoration: none;
       font-weight: 500;
       transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(110, 68, 255, 0.3);
     } 
 
     .video-link:hover {
       background: var(--primary-dark);
       transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(110, 68, 255, 0.4);
+      box-shadow: 0 8px 15px rgba(110, 68, 255, 0.5);
     } 
 
     /* AI Tools Section */
@@ -529,15 +586,15 @@
     } 
 
     .tool-card {
-      background: var(--card-bg);
+      background: var(--card-bg-dark);
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-dark);
       transition: var(--transition);
       backdrop-filter: blur(5px);
       display: flex;
       flex-direction: column;
-      border: 1px solid rgba(110, 68, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       transform: translateY(50px);
       opacity: 0;
       transition: all 0.6s ease 0.2s;
@@ -550,8 +607,24 @@
 
     .tool-card:hover {
       transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 15px 30px rgba(255, 77, 148, 0.25);
+      box-shadow: 0 15px 30px rgba(255, 77, 148, 0.35);
     } 
+
+    .tool-logo {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .tool-logo img {
+      max-height: 50px;
+      max-width: 80%;
+      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+    }
 
     .tool-content {
       padding: 25px;
@@ -566,7 +639,7 @@
       justify-content: center;
       width: 36px;
       height: 36px;
-      background: linear-gradient(135deg, var(--accent), var(--primary));
+      background: var(--gradient);
       color: white;
       border-radius: 50%;
       font-weight: bold;
@@ -578,20 +651,21 @@
     .tool-title {
       font-size: 1.4rem;
       margin-bottom: 10px;
-      color: var(--primary);
+      color: var(--accent);
     } 
 
     .tool-description {
       margin-bottom: 20px;
       flex-grow: 1;
-      color: var(--text);
+      color: var(--text-light);
+      opacity: 0.85;
       font-size: 1rem;
     } 
 
     .tool-link {
       display: inline-block;
       padding: 10px 20px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: var(--gradient);
       color: white;
       border-radius: 30px;
       text-decoration: none;
@@ -604,32 +678,34 @@
 
     .tool-link:hover {
       transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(255, 77, 148, 0.4);
+      box-shadow: 0 8px 20px rgba(255, 77, 148, 0.5);
     } 
 
     /* Contact Form Styles */
     .contact-form-container {
       max-width: 600px;
       margin: 0 auto;
-      background: var(--card-bg);
+      background: var(--card-bg-dark);
       padding: 40px;
       border-radius: 20px;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-dark);
       backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .form-title {
       font-size: 1.8rem;
       margin-bottom: 20px;
-      color: var(--primary);
+      color: var(--accent);
       text-align: center;
     }
 
     .form-description {
       text-align: center;
-      color: var(--text);
+      color: var(--text-light);
       margin-bottom: 30px;
       font-size: 1.1rem;
+      opacity: 0.9;
     }
 
     .form-group {
@@ -641,36 +717,40 @@
       display: block;
       margin-bottom: 8px;
       font-weight: 500;
-      color: var(--text);
+      color: var(--light);
       font-size: 1rem;
     }
 
     .form-input {
       width: 100%;
       padding: 14px 20px;
-      border: 2px solid #e0e0e0;
+      border: 2px solid rgba(255, 255, 255, 0.1);
       border-radius: 12px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
       font-size: 1rem;
       transition: var(--transition);
-      color: var(--text);
+      color: var(--light);
     }
 
     .form-input:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.2);
+      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.3);
     }
 
     .form-input:hover {
       border-color: var(--primary);
     }
 
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
     .submit-btn {
       display: block;
       width: 100%;
       padding: 16px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      background: var(--gradient);
       color: white;
       border: none;
       border-radius: 12px;
@@ -678,12 +758,31 @@
       font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
-      box-shadow: 0 5px 15px rgba(110, 68, 255, 0.3);
+      box-shadow: 0 5px 15px rgba(110, 68, 255, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
     }
 
     .submit-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(255, 77, 148, 0.4);
+      box-shadow: 0 8px 20px rgba(255, 77, 148, 0.5);
+    }
+
+    .submit-btn:hover::before {
+      opacity: 1;
     }
 
     .submit-btn:disabled {
@@ -723,6 +822,7 @@
       padding: 60px 0 30px;
       position: relative;
       z-index: 5;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     } 
 
     .footer-content {
@@ -753,6 +853,7 @@
     .footer-about p {
       margin-bottom: 20px;
       color: var(--light);
+      opacity: 0.9;
     } 
 
     .footer-links {
@@ -768,15 +869,22 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      opacity: 0.9;
     } 
 
     .footer-link i {
       color: var(--accent);
+      transition: var(--transition);
     } 
 
     .footer-link:hover {
       color: var(--accent);
       transform: translateX(5px);
+      opacity: 1;
+    } 
+
+    .footer-link:hover i {
+      transform: scale(1.2);
     } 
 
     .copyright {
@@ -858,6 +966,11 @@
       .nav-container {
         padding: 0 15px;
       }
+      
+      .theme-toggle {
+        top: 20px;
+        right: 20px;
+      }
     } 
 
     /* Animations */
@@ -881,7 +994,7 @@
     } 
 
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(var(--accent), var(--primary));
+      background: var(--gradient);
       border-radius: 10px;
     } 
 
@@ -912,7 +1025,7 @@
   <header id="home">
     <div class="header-overlay"></div>
     <button class="theme-toggle" id="themeToggle">
-      <i class="fas fa-moon"></i>
+      <i class="fas fa-sun"></i>
     </button>
     
     <div class="header-content floating">
@@ -1028,6 +1141,9 @@
       <div class="tools-grid">
         <!-- Tool 1 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png" alt="ChatGPT Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">1</div>
             <h3 class="tool-title">ChatGPT</h3>
@@ -1038,6 +1154,9 @@
         
         <!-- Tool 2 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://styles.redditmedia.com/t5_4b0t3s/styles/communityIcon_6l5hahm4b8e91.png" alt="Midjourney Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">2</div>
             <h3 class="tool-title">Midjourney</h3>
@@ -1048,6 +1167,9 @@
         
         <!-- Tool 3 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://assets-global.website-files.com/6503e5d4d8e9f4e9d4f1c3a2/6503e5d4d8e9f4e9d4f1c3b6_Suno%20Logo%20-%20Green.png" alt="Suno AI Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">3</div>
             <h3 class="tool-title">Suno AI</h3>
@@ -1058,6 +1180,9 @@
         
         <!-- Tool 4 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Claude_AI_logo.svg/1200px-Claude_AI_logo.svg.png" alt="Claude Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">4</div>
             <h3 class="tool-title">Claude</h3>
@@ -1068,6 +1193,9 @@
         
         <!-- Tool 5 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://assets-global.website-files.com/621c8d7ad9e049337c8d2e33/621c8d7ad9e0494d7b8d2e6d_logo-runway.svg" alt="Runway ML Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">5</div>
             <h3 class="tool-title">Runway ML</h3>
@@ -1078,6 +1206,9 @@
         
         <!-- Tool 6 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://assets-global.website-files.com/64f9d3d4b4d2a6d9f4a5a0b9/64f9d3d4b4d2a6d9f4a5a0c5_pika-logo.svg" alt="Pika Labs Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">6</div>
             <h3 class="tool-title">Pika Labs</h3>
@@ -1088,6 +1219,9 @@
         
         <!-- Tool 7 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://assets-global.website-files.com/64f9d3d4b4d2a6d9f4a5a0b9/64f9d3d4b4d2a6d9f4a5a0c3_leonardo-ai-logo.svg" alt="Leonardo AI Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">7</div>
             <h3 class="tool-title">Leonardo AI</h3>
@@ -1098,6 +1232,9 @@
         
         <!-- Tool 8 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://assets-global.website-files.com/64f9d3d4b4d2a6d9f4a5a0b9/64f9d3d4b4d2a6d9f4a5a0c4_elevenlabs-logo.svg" alt="ElevenLabs Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">8</div>
             <h3 class="tool-title">ElevenLabs</h3>
@@ -1108,6 +1245,9 @@
         
         <!-- Tool 9 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://assets-global.website-files.com/64f9d3d4b4d2a6d9f4a5a0b9/64f9d3d4b4d2a6d9f4a5a0c2_perplexity-logo.svg" alt="Perplexity AI Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">9</div>
             <h3 class="tool-title">Perplexity AI</h3>
@@ -1118,6 +1258,9 @@
         
         <!-- Tool 10 -->
         <div class="tool-card">
+          <div class="tool-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/OpenAI_Logo.svg/1200px-OpenAI_Logo.svg.png" alt="Sora by OpenAI Logo">
+          </div>
           <div class="tool-content">
             <div class="tool-number">10</div>
             <h3 class="tool-title">Sora by OpenAI</h3>
@@ -1219,7 +1362,7 @@
     // Initialize particles.js
     particlesJS("particles-js", {
       particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
+        number: { value: 100, density: { enable: true, value_area: 800 } },
         color: { value: "#6e44ff" },
         shape: {
           type: ["circle", "triangle", "polygon"],
@@ -1227,14 +1370,14 @@
           polygon: { nb_sides: 5 }
         },
         opacity: {
-          value: 0.5,
+          value: 0.6,
           random: false,
-          anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+          anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
         },
         size: {
-          value: 3,
+          value: 4,
           random: true,
-          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+          anim: { enable: true, speed: 10, size_min: 0.1, sync: false }
         },
         line_linked: {
           enable: true,
@@ -1245,7 +1388,7 @@
         },
         move: {
           enable: true,
-          speed: 2,
+          speed: 3,
           direction: "none",
           random: false,
           straight: false,
@@ -1263,7 +1406,7 @@
         },
         modes: {
           grab: { distance: 140, line_linked: { opacity: 1 } },
-          push: { particles_nb: 4 }
+          push: { particles_nb: 6 }
         }
       },
       retina_detect: true
