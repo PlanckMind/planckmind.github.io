@@ -5,7 +5,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Nitish Rathore - PlanckMind | AI Educator &amp; Content Creator</title>
-<link rel="icon" href="favicon.png" type="image/png">
+<link rel="icon" href="favicon.png" type="image/png"/>
+
 <meta content="PlanckMind simplifies AI tools through fun YouTube tutorials. Explore AI tools, tutorials, and resources." name="description"/>
 <meta content="AI tools, AI tutorials, PlanckMind, Nitish Rathore, Sora AI, Leonardo AI, Kling AI, Luna AI" name="keywords"/>
 <meta content="Nitish Rathore" name="author"/>
@@ -1059,7 +1060,7 @@
 }
 </style>
 <link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🧠&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
-</head>
+<meta content="index, follow" name="robots"/><meta content="Nitish Rathore - PlanckMind | AI Educator &amp; Content Creator" property="og:title"/><meta content="PlanckMind simplifies AI tools through fun YouTube tutorials. Explore AI tools, tutorials, and resources." property="og:description"/><meta content="website" property="og:type"/><meta content="https://planckmind.github.io" property="og:url"/><meta content="https://img.youtube.com/vi/gJvVzfokRHs/maxresdefault.jpg" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="Nitish Rathore - PlanckMind | AI Educator &amp; Content Creator" name="twitter:title"/><meta content="PlanckMind simplifies AI tools through fun YouTube tutorials. Explore AI tools, tutorials, and resources." name="twitter:description"/><meta content="https://img.youtube.com/vi/gJvVzfokRHs/maxresdefault.jpg" name="twitter:image"/></head>
 <body>
 <div id="particles-js"></div>
 <nav id="navbar">
@@ -1074,7 +1075,6 @@
 <a class="nav-link" href="#tools">AI Tools</a>
 <a class="nav-link" href="#contact">Contact</a>
 </div>
-
 </div>
 </nav>
 <header id="home">
@@ -1086,7 +1086,6 @@
 <button class="search-toggle" onclick="toggleSearchBar()"><i class="fas fa-search"></i></button>
 <input class="search-input" id="searchInput" onkeyup="filterContent()" placeholder="Search..." type="text"/>
 </div>
-
 <div class="header-content floating">
 <div class="profile-container">
 <img alt="Nitish Rathore" class="profile-img" src="pro.jpg"/>
@@ -1613,5 +1612,41 @@ function filterContent() {
     }
   });
 }
-</script></body>
+</script>
+<button id="backToTop" title="Go to top"><i class="fas fa-chevron-up"></i></button>
+<style>
+#backToTop {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 999;
+  font-size: 1.4rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  cursor: pointer;
+  display: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+#backToTop:hover {
+  background: var(--secondary);
+}
+</style>
+<script>
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 300) {
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
+});
+document.getElementById('backToTop').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
 </html>
